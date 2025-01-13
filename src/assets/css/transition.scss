@@ -1,0 +1,35 @@
+// 页面间切换的效果
+
+// 竖直平移
+.straight-translate-Y-enter-from {
+  transform: translateY(100vh);
+}
+.straight-translate-Y-enter-active,
+.straight-translate-Y-leave-active {
+  position: absolute;
+  transition: transform 1s ease-in-out;
+}
+.straight-translate-Y-enter-to,
+.straight-translate-Y-leave-from {
+  transform: translateY(0);
+}
+.straight-translate-Y-leave-to {
+  transform: translateY(-100vh);
+}
+
+// 水平平移
+.straight-translate-X-enter-from {
+  transform: translateX(100vw);
+}
+.straight-translate-X-enter-active,
+.straight-translate-X-leave-active {
+  position: absolute;
+  transition: transform 1s ease-in-out;
+}
+.straight-translate-X-enter-to,
+.straight-translate-X-leave-from {
+  transform: translateX(0);
+}
+.straight-translate-X-leave-to {
+  transform: translateX(-100vw);
+}
