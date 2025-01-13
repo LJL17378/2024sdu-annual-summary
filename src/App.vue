@@ -87,6 +87,8 @@ provide('conclusion', conclusion);
 const catalog = computed(() => [
   'index',
   'begin',
+  'volunteering',
+  'consume',
   'wishes',
   conclusion.value,
   // 'award-reading',
@@ -99,7 +101,7 @@ const catalog = computed(() => [
 
 // 不用路由了, 用动态组件都可
 // 当前组件的索引, 跟文件名字一样, 没有后缀名
-const currentIndex = ref(16);
+const currentIndex = ref(0);
 
 // 音乐，单例模式
 const audioEl = new Audio(audio);

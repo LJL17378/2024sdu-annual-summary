@@ -8,19 +8,19 @@
         <button @click="login">{{ isLoading ? '登录中' : '登录' }}</button>
       </div>
     </div>
-    <img
+    <!-- <img
       class="index-title"
       src="@/assets/img/index_title.png"
       alt="加载失败"
-    />
+    /> -->
 
     <!-- <indexTitle class="index-title" /> -->
     <!-- <indexImg class="index-img" /> -->
-
-    <img class="index-img" src="@/assets/img/index.png" alt="加载失败" />
+"
+    <img class="index-img" src="../assets/img/index.png" alt="加载失败" />
 
     <div class="agreement_card" v-if="showAgreementText">
-      <img class="close" src="@/assets/svg/close.svg" alt="关闭" @click="showAgreementText = false"/>
+      <img class="close" src="../assets/svg/close.svg" alt="关闭" @click="showAgreementText = false"/>
       <h1 class="title">"我的SDU年度总结"授权协议</h1>
       <p>欢迎阅读我们的授权协议，我们尊重并保护所有使用我们服务的用户的个人隐私权。为了更好地保障您的权益，请您在使用我们的服务之前，仔细阅读本授权协议的所有内容。如果您对本协议的任何条款有异议，您可以选择不使用我们的服务。当您使用我们的服务时，即表示您已同意我们按照本协议收集、使用、披露和保护您的个人信息。本协议旨在向您解释我们如何收集、使用、保护和处理您的个人信息。请仔细阅读本协议，以了解我们对您个人信息的处理方式。</p>
       <p>在阅读本协议前，请允许我们对您的使用表示感谢。本应用程序首次为山东大学济南校本部本科学子提供年度报告，如有任何问题或建议请联系我们，您的意见对我们非常重要。同时，由于本应用程序的特殊性，我们会收集和使用您的个人信息，我们将尽力保护您的个人信息，以保证您的隐私安全。</p>
