@@ -11,7 +11,7 @@
         <p>跨越校区的每一次</p>
         <p>都是对学术探索的执着追求。</p>
       </div>
-      <div :class="['image-bus', { imgAppear: !transitionalValue }]">
+      <div :class="['image-light', { LightImgAppear: !transitionalValue }]">
         <img src="../assets/img/bus-light.png" alt="加载失败">
       </div>
       <div class="image-hillside imgAppear">
@@ -65,6 +65,7 @@ import Flower from '../components/flower.vue';
   
   <style scoped lang="scss">
   .bus {
+    z-index: -10;
     width: 100%;
     height: 100%;
     margin:0px;
@@ -115,6 +116,20 @@ import Flower from '../components/flower.vue';
       &.imgAppear {
         right: 0;
         bottom: 0;
+      }
+    }
+    .image-light {
+      position: absolute;
+      bottom:71.4vw;
+      right: -100vw;
+      transition: all 2s ease-in-out;
+      img {
+        width: 145.5vw;
+        // height: 391px;
+      }
+      &.LightImgAppear {
+        right: 0;
+        bottom: 42vw;
       }
     }
     .image-hillside {
