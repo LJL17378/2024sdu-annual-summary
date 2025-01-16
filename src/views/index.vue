@@ -16,7 +16,6 @@
 
     <!-- <indexTitle class="index-title" /> -->
     <!-- <indexImg class="index-img" /> -->
-"
     <img class="index-img" src="../assets/img/index.png" alt="加载失败" />
 
     <div class="agreement_card" v-if="showAgreementText">

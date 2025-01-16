@@ -9,8 +9,8 @@ import AwardNormal from '@/views/award_normal.vue'
 import End from '@/views/end.vue'
 import Wishes from '@/views/wishes.vue'
 import Volunteering from '../../views/volunteering.vue'
-import consume from '../../views/consume.vue'
 import Consume from '../../views/consume.vue'
+import Bus from '../../views/bus.vue'
 
 export const views = {
   'index': Index,
@@ -18,6 +18,7 @@ export const views = {
   'wishes': Wishes,
   'volunteering': Volunteering,
   'consume': Consume,
+  'bus': Bus,
   'award-reading': AwardReading,
   'award-early-eight': AwardEarlyEight,
   'award-library-king': AwardLibraryKing,
