@@ -1,5 +1,5 @@
 <template>
-    <div class="begin">
+    <div class="volunteering">
       <div :class="['text', { textAppear: !transitionalValue }]">
         <p>过去一年，</p>
         <p>全校学生参与志愿活动共计<span class="bold">567</span>小时</p>
@@ -22,8 +22,6 @@
   
   <script setup>
   import { computed, inject, watch, ref } from 'vue'
-  import beginImg from '../assets/svg/begin_svg.vue'
-  import userData from '../assets/js/request';
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
@@ -34,7 +32,7 @@
   </script>
   
   <style scoped lang="scss">
-  .begin {
+  .volunteering {
     width: 100%;
     height: 100%;
     margin:0px;

@@ -90,6 +90,8 @@ const catalog = computed(() => [
   'volunteering',
   'consume',
   'bus',
+  'birthday',
+  'hometown',
   'wishes',
   conclusion.value,
   // 'award-reading',

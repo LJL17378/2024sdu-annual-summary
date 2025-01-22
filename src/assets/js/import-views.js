@@ -11,6 +11,8 @@ import Wishes from '@/views/wishes.vue'
 import Volunteering from '../../views/volunteering.vue'
 import Consume from '../../views/consume.vue'
 import Bus from '../../views/bus.vue'
+import Birthday from '../../views/birthday.vue'
+import Hometown from '../../views/hometown.vue'
 
 export const views = {
   'index': Index,
@@ -19,6 +21,8 @@ export const views = {
   'volunteering': Volunteering,
   'consume': Consume,
   'bus': Bus,
+  'birthday': Birthday,
+  'hometown': Hometown,
   'award-reading': AwardReading,
   'award-early-eight': AwardEarlyEight,
   'award-library-king': AwardLibraryKing,
