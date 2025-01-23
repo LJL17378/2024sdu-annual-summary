@@ -149,15 +149,14 @@ provide('transitional', transitional);
 provide('currentIndex',currentIndex);
 
 const nextPage = () => {
-  if (views.length === currentIndex.value + 1 ) return;
-  //如果在第一页，则不允许翻页
-  else if (currentIndex.value === 0) return;
-  // 如果在子组件内部的翻页动画期间，则不允许翻页
-  else if (subTransitional.value) return;
-  console.log('翻页');
+  // 首页、最后一页、动画期间不翻页
+  if (views.length === currentIndex.value + 1 
+    // || currentIndex.value === 0
+    || subTransitional.value
+  ) return;
   currentIndex.value++;
-  console.log(catalog.value);
 };
+
 document.addEventListener('touchend', () => {
   // 只有当滑动距离超过屏幕高度的 20% 时才翻页
   if (

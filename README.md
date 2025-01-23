@@ -1,2 +1,5 @@
-# 2024sdu-annual-summary
-2024 annual summary for sduer
+1.24
+
+把项目整理了一下。测试的时候修改`assets/js/import-views.js`中的顺序即可（就不请求了，使用测试数据）。
+
+这里为了方便把`App.vue`中首页不下滑的代码注释掉了，后面记得加上

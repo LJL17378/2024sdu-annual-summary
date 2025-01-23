@@ -1,15 +1,11 @@
 <template>
   <div class="begin">
     <div :class="['text', { textAppear: !transitionalValue }]">
-      <p>岁月不局, 时节如流</p>
-      <p class="bold">hi, @{{ userData.name }}</p>
-      <p>欢迎你进入SDU时间列车</p>
-      <p>很荣幸能一起回顾</p>
-      <p>2023-2024学年</p>
-      <p>的神秘旅途</p>
-    </div>
-    <div :class="['image', { imgAppear: !transitionalValue }]">
-      <img src="@/assets/img/begin.png" alt="加载失败">
+      <p>一年时间轻轻划过</p>
+      <p>过去的一年满是美好回忆</p>
+      <p>快来按下按钮</p>
+      <p>开启你的年度报告</p>
+      <p>回味专属于你的2024</p>
     </div>
   </div>
 </template>
@@ -21,10 +17,7 @@ import userData from '../assets/js/request';
 
 const transitional = inject('transitional')
 const transitionalValue = computed(() => transitional.value)
-watch(transitionalValue, () => {
-  console.log('开始页面内动画')
-})
-// const username = ref('xx');
+
 </script>
 
 <style scoped lang="scss">

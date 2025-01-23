@@ -1,7 +1,7 @@
 import Login from "@/views/login.vue";
 import P00Welcome from "@/views/p00_welcome.vue";
 // import P01Age from "@/views/p01_age.vue";
-// import P02Birthday from "@/views/p02_birthday.vue";
+import P02Birthday from "@/views/p02_birthday.vue";
 // import P03SameBirth from "@/views/p03_samebirth.vue";
 // import P04Hometown from "@/views/p04_hometown.vue";
 // import P05Classroom from "@/views/p05_classroom.vue";
@@ -21,10 +21,10 @@ import P00Welcome from "@/views/p00_welcome.vue";
 // import Summary from "@/views/summary.vue";
 
 export default [
-  Login,
+  // Login,
   P00Welcome,
   // P01Age,
-  // P02Birthday,
+  P02Birthday,
   // P03SameBirth,
   // P04Hometown,
   // P05Classroom,
