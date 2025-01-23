@@ -65,13 +65,12 @@ import indexTitle from '../assets/svg/index_title.vue';
 import selectImg from '../assets/icons/select.vue';
 import noSelectImg from '../assets/icons/no_select.vue';
 import indexBtn from '../assets/svg/index_btn.vue';
-import { requestTrueUserData,requestUserData,getConclusion } from '../assets/js/request';
+import { requestUserData } from '../assets/js/request';
 const showPopup = ref(false);
 const nextPage = inject('nextPageFunc');
 const currentIndex = inject('currentIndex')
 const agree = ref(false);
 const isShaking = ref(false);
-const conclusion = inject('conclusion')
 
 //测试用
 // onMounted(async() => {
@@ -104,8 +103,7 @@ const login = async () => {
   // 捕获错误
   try {
     isLoading.value = true;
-    const res = await requestTrueUserData(studentId.value, password.value);
-    conclusion.value = getConclusion();
+    await requestUserData(studentId.value, password.value);
     isLoading.value = false;
     // console.log('res:', res);
     showPopup.value = false;

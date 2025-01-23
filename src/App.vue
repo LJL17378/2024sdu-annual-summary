@@ -16,8 +16,8 @@
         class="down-arrow"
         v-if="
           currentIndex !== 0 &&
-          currentIndex !== catalog.length - 1 &&
-          currentIndex !== catalog.length - 2
+          currentIndex !== views.length - 1 &&
+          currentIndex !== views.length - 2
         "
       />
     </div>
@@ -27,7 +27,7 @@
       :name="transitionStyle"
     >
       <keep-alive>
-        <component :is="getViews(catalog[currentIndex])" />
+        <component :is="views[currentIndex]" />
       </keep-alive>
     </transition>
   </div>
@@ -36,13 +36,13 @@
 <script setup>
 import { onMounted, provide, ref, computed } from 'vue';
 import { usePosition } from '@/assets/js/utils.js';
-import { views } from '@/assets/js/import-views.js';
+import views from '@/assets/js/import-views.js';
 import shareImg from './assets/icons/share.vue';
 import returnImg from './assets/icons/return.vue';
 import music from './assets/icons/music.vue';
 import noMusic from './assets/icons/no_music.vue';
 import downArrowImg from './assets/icons/down_arrow.vue';
-import { requestUserData, getConclusion } from '@/assets/js/request.js';
+import { requestUserData } from '@/assets/js/request.js';
 import audio from '@/assets/audio/bgm.mp3';
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -77,30 +77,6 @@ window.addEventListener('resize', () => {
 //   },1000);
 // });
 
-
-// 获取用户数据
-// requestUserData();
-// 插入总结页
-const conclusion = ref('')
-provide('conclusion', conclusion);
-// 要展示的页面的目录, 不同用户的可能不一样
-const catalog = computed(() => [
-  'index',
-  'begin',
-  'volunteering',
-  'consume',
-  'bus',
-  'birthday',
-  'hometown',
-  'wishes',
-  conclusion.value,
-  // 'award-reading',
-  // 'award-early-eight',
-  // 'award-library-king',
-  // 'award-losing-card',
-  // 'award-normal',
-  'end',
-]);
 
 // 不用路由了, 用动态组件都可
 // 当前组件的索引, 跟文件名字一样, 没有后缀名
@@ -156,10 +132,6 @@ const stopMusic = () => {
   console.log('停止音乐');
 };
 
-const getViews = (viewIndex) => {
-  return views[viewIndex];
-};
-
 //禁用滚轮事件
 document.addEventListener('mousewheel', (e) => e.preventDefault(), {
   passive: false,
@@ -177,7 +149,7 @@ provide('transitional', transitional);
 provide('currentIndex',currentIndex);
 
 const nextPage = () => {
-  if (!catalog.value[currentIndex.value + 1]) return;
+  if (views.length === currentIndex.value + 1 ) return;
   //如果在第一页，则不允许翻页
   else if (currentIndex.value === 0) return;
   // 如果在子组件内部的翻页动画期间，则不允许翻页

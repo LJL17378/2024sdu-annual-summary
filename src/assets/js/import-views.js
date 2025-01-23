@@ -1,32 +1,45 @@
-// 一次导入所有页面组件
-import Index from '@/views/index.vue'
-import Begin from '@/views/begin.vue'
-import AwardReading from '@/views/award_reading.vue'
-import AwardEarlyEight from '@/views/award_early_eight.vue'
-import AwardLibraryKing from '@/views/award_library_king.vue'
-import AwardLosingCard from '@/views/award_losing_card.vue'
-import AwardNormal from '@/views/award_normal.vue'
-import End from '@/views/end.vue'
-import Wishes from '@/views/wishes.vue'
-import Volunteering from '../../views/volunteering.vue'
-import Consume from '../../views/consume.vue'
-import Bus from '../../views/bus.vue'
-import Birthday from '../../views/birthday.vue'
-import Hometown from '../../views/hometown.vue'
+import Login from "@/views/login.vue";
+import P00Welcome from "@/views/p00_welcome.vue";
+// import P01Age from "@/views/p01_age.vue";
+// import P02Birthday from "@/views/p02_birthday.vue";
+// import P03SameBirth from "@/views/p03_samebirth.vue";
+// import P04Hometown from "@/views/p04_hometown.vue";
+// import P05Classroom from "@/views/p05_classroom.vue";
+// import P06Course from "@/views/p06_course.vue";
+// import P07Morning8 from "@/views/p07_morning8.vue";
+// import P08Evening9 from "@/views/p08_evening9.vue";
+// import P09LibStats from "@/views/p09_libstats.vue";
+// import P10HitBook from "@/views/p10_hitbook.vue";
+// import P11LibPrefer from "@/views/p11_libprefer.vue";
+// import P12Eating from "@/views/p12_eating.vue";
+// import P13Spending from "@/views/p13_spending.vue";
+// import P14Honor from "@/views/p14_honor.vue";
+// import P15BusStats from "@/views/p15_busstats.vue";
+// import P16BusPrefer from "@/views/p16_busprefer.vue";
+// import P17Volunteering from "@/views/p17_volunteering.vue";
+// import P18Working from "@/views/p18_working.vue";
+// import Summary from "@/views/summary.vue";
 
-export const views = {
-  'index': Index,
-  'begin': Begin,
-  'wishes': Wishes,
-  'volunteering': Volunteering,
-  'consume': Consume,
-  'bus': Bus,
-  'birthday': Birthday,
-  'hometown': Hometown,
-  'award-reading': AwardReading,
-  'award-early-eight': AwardEarlyEight,
-  'award-library-king': AwardLibraryKing,
-  'award-losing-card': AwardLosingCard,
-  'award-normal': AwardNormal,
-  'end': End
-}
+export default [
+  Login,
+  P00Welcome,
+  // P01Age,
+  // P02Birthday,
+  // P03SameBirth,
+  // P04Hometown,
+  // P05Classroom,
+  // P06Course,
+  // P07Morning8,
+  // P08Evening9,
+  // P09LibStats,
+  // P10HitBook,
+  // P11LibPrefer,
+  // P12Eating,
+  // P13Spending,
+  // P14Honor,
+  // P15BusStats,
+  // P16BusPrefer,
+  // P17Volunteering,
+  // P18Working,
+  // Summary,
+];
