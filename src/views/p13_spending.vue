@@ -49,6 +49,7 @@
     background: url("../assets/img/consume-bg.png") no-repeat;
     background-size:100% 100%;
     background-attachment:fixed;
+    overflow-y: hidden;
     .text {
       position: absolute;
       top: 8vh;
@@ -91,6 +92,7 @@
       &.imgAppear {
         right: 0;
         top: 0;
+        overflow: hidden;
       }
     }
     .image-noodles {
@@ -105,7 +107,6 @@
       }
       &.imgAppear {
         right: 0;
-        bottom: 0;
       }
     }
   }

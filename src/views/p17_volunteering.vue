@@ -1,15 +1,10 @@
 <template>
     <div class="volunteering">
       <div :class="['text', { textAppear: !transitionalValue }]">
-        <p>过去一年，</p>
-        <p>全校学生参与志愿活动共计<span class="bold">567</span>小时</p>
-        <br>
-        <p>其中，</p>
-        <p>你参与了<span class="bold">28</span>小时的志愿活动，</p>
-        <p>共计<span class="bold">6</span>次</p>
-        <br>
-        <p>历时最长的是<span class="bold">图书馆志愿活动</span>，</p>
-        <p>长达<span class="bold">6</span>小时</p>
+        <p>今年，</p>
+        <p>你参加了<span class="bold">x</span>次志愿活动，</p>
+        <p>贡献了<span class="bold">x</span>小时时长，</p>
+        <p>成为了一名优秀的志愿者！</p>
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/volunteering-plane.png" alt="加载失败">
@@ -41,11 +36,11 @@
     background-attachment:fixed;
     .text {
       position: absolute;
-      top: 8vh;
+      top: 20vh;
       left: -100%;
       font-size: 20px;
       z-index: 1000;
-      line-height: 1.5;
+      line-height: 2;
       transition: all 1s ease-in-out;
       p{
         font-family: 'Microsoft YaHei UI';

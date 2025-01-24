@@ -8,7 +8,7 @@
           <p>那是一个美丽的城市，</p>
           <p>你知道那里有什么特产吗？</p>
         </div>
-        <div style="top: 130vw;text-align: right;" v-else-if="index === 2" class="text fade">
+        <div style="top: 60vh;text-align: right;" v-else-if="index === 2" class="text fade">
           <p>有1111人与你来自同样的地区，</p>
           <p>来自同一片土地，</p>
           <p>天然的亲切感和默契把你们紧紧相连，</p>
@@ -127,7 +127,6 @@ document.addEventListener('touchend', subNextPage)
 
     img {
       width: 100vw;
-      filter: drop-shadow(10px 10px 25px rgba(0, 0, 0, 0.25));
     }
 
     &.imgAppear {
