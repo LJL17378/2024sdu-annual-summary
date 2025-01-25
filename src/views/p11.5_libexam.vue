@@ -62,7 +62,7 @@
     }
     .image {
       position: absolute;
-      bottom:-132vh;
+      bottom:-32vh;
       right: 0;
       transition: all 1s ease-in-out;
       img {

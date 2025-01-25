@@ -1,0 +1,121 @@
+<template>
+    <div class="working">
+      <div :class="['text', { textAppear: !transitionalValue }]">
+        <p style="font-size: 36px;">今年，</p>
+        <p>共有<span class="bold">115232</span>人次参与勤工助学，</p>
+        <p>收获报酬共计<span class="bold">2299.25</span>万元。</p>
+        <p>在缓解生活压力的同时丰富了实践经验</p>
+        <p>提升了工作技能</p>
+        <p>其中，</p>
+        <p>你在<span class="bold">学生在线</span>工作过</p>
+        <p>用汗水换取丰厚的劳动果实。</p>
+      </div>
+      <div :class="['image', { imgAppear: !transitionalValue }]">
+        <img src="../assets/img/working-right.png" alt="加载失败">
+      </div>
+      <div :class="['image-fish', { imgAppear: !transitionalValue }]">
+        <img src="../assets/img/working-left.png" alt="加载失败">
+      </div>
+      <div class="image-filter imgAppear">
+      <img src="../assets/img/filter.png" alt="加载失败">
+    </div>
+      <!-- <div style="width: 100vw;position: absolute;right: 0;bottom: 0;">
+        <img src="../assets/img/consume-filter.png" alt="加载失败">
+      </div> -->
+    </div>
+  </template>
+  
+  <script setup>
+  import { computed, inject, watch, ref } from 'vue'
+  
+  const transitional = inject('transitional')
+  const transitionalValue = computed(() => transitional.value)
+  watch(transitionalValue, () => {
+    console.log('开始页面内动画')
+  })
+  // const username = ref('xx');
+  </script>
+  
+  <style scoped lang="scss">
+  .working {
+    width: 100%;
+    height: 100%;
+    margin:0px;
+    background: url("../assets/img/working-bg.png") no-repeat;
+    background-size:100% 100%;
+    background-attachment:fixed;
+    .image-filter {
+    position: absolute;
+
+    img {
+      width: 250vw;
+      opacity: 0.15;
+    }
+
+    &.imgAppear {
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .text {
+      position: absolute;
+      top: 10vh;
+      left: -100%;
+      font-size: 20px;
+      z-index: 1000;
+      line-height: 2;
+      transition: all 1s ease-in-out;
+      transition-delay: 0.5s;
+      p{
+        font-family: 'Microsoft YaHei UI';
+        color:#064ea7;                        
+        font-weight: 700;
+      }
+      span.bold{
+        display: inline-block;
+        font-size: 26px;
+        //加粗
+        font-weight: 700;
+        color: #053571;
+      }
+      &.textAppear {
+        left: 8vw;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+    }
+    .image {
+      position: absolute;
+      top:0;
+      right: -112%;
+      transition: all 1s ease-in-out;
+      img {
+        width: 100vw;
+        // height: 391px;
+      }
+      &.imgAppear {
+        width: 100%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+      }
+    }
+    .image-fish {
+      position: absolute;
+      bottom:0;
+      right: 112%;
+      transition: all 1s ease-in-out;
+      img {
+        width: 100vw;
+        // height: 391px;
+      }
+      &.imgAppear {
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+    }
+  }
+  </style>

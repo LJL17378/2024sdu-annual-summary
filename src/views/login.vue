@@ -8,6 +8,14 @@
         <button @click="login">{{ isLoading ? '登录中' : '登录' }}</button>
       </div>
     </div>
+
+    <div class="text-ta">
+      <p>一年时光轻轻划过，</p>
+      <p>过去的一年满是美好的回忆，</p>
+      <p>快来按下按钮，</p>
+      <p>开启你的年度报告，</p>
+      <p>回味专属于你的2024，</p>
+    </div>
     <!-- <img
       class="index-title"
       src="@/assets/img/index_title.png"
@@ -16,7 +24,12 @@
 
     <!-- <indexTitle class="index-title" /> -->
     <!-- <indexImg class="index-img" /> -->
-    <img class="index-img" src="../assets/img/index.png" alt="加载失败" />
+    <img class="clock" style="position: absolute;width: 140vw;left: 9vw;top: -60vw;" src="../assets/img/welcome-clock.png" alt="">
+    <img class="index-img" src="../assets/img/welcome-sandglass.png" alt="加载失败" />
+    <div class="image-filter imgAppear">
+      <img src="../assets/img/filter.png" alt="加载失败">
+    </div>
+
 
     <div class="agreement_card" v-if="showAgreementText">
       <img class="close" src="../assets/svg/close.svg" alt="关闭" @click="showAgreementText = false"/>
@@ -68,7 +81,7 @@ import indexBtn from '../assets/svg/index_btn.vue';
 import { requestUserData } from '../assets/js/request';
 const showPopup = ref(false);
 const nextPage = inject('nextPageFunc');
-const currentIndex = inject('currentIndex')
+const next = inject('next')
 const agree = ref(false);
 const isShaking = ref(false);
 
@@ -103,16 +116,14 @@ const login = async () => {
   // 捕获错误
   try {
     isLoading.value = true;
-    await requestUserData(studentId.value, password.value);
+    // await requestUserData(studentId.value, password.value);
+    // 我这里先跳过了具体的登录逻辑
     isLoading.value = false;
-    // console.log('res:', res);
     showPopup.value = false;
-    // nextPage();
-    currentIndex.value++;
+    next()
   } catch (error) {
     console.log('error:', error);
     isLoading.value = false;
-    // 弹出错误提示
     alert(error.message);
   }
   showPopup.value = true;
@@ -122,6 +133,29 @@ const showAgreementText = ref(false)
 </script>
 
 <style scoped lang="scss">
+@keyframes rotate {
+    0% {
+      transform:rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+@keyframes smallShake  {
+  0%{
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+  }
+  33%{
+    transform: rotate(15deg) translateX(5px) translateY(10px);
+  }
+  66%{
+    transform: rotate(10deg) translateX(5px) translateY(20px);
+  }
+  100%{
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+  }
+}
 @keyframes shake {
   0%,
   50%,
@@ -167,12 +201,38 @@ const showAgreementText = ref(false)
   }
 }
 .index {
+  .text-ta{
+    width: 100%;
+    position: absolute;
+    bottom: 60vw;
+    p{
+      text-align: center;
+      line-height: 2;
+      font-size: 20px;
+    }
+  }
   width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-    rgba(109, 180, 210, 0.64),
-    rgba(126, 168, 230, 1)
-  );
+    height: 100%;
+    margin:0px;
+    background: url("../assets/img/welcome-bg.png") no-repeat;
+    background-size:100% 100%;
+    background-attachment:fixed;
+    .clock{
+      animation: rotate 40s infinite linear;
+    }
+    .image-filter {
+    position: absolute;
+
+    img {
+      width: 250vw;
+      opacity: 0.15;
+    }
+
+    &.imgAppear {
+      right: 0;
+      bottom: 0;
+    }
+  }
   .login_card {
     position: absolute;
     top: 32vh;
@@ -245,18 +305,18 @@ const showAgreementText = ref(false)
     width: 100vw;
   }
   .index-img {
+    animation: smallShake infinite 5s linear;
     position: absolute;
-    top: 64px;
+    top: 20vw;
     // width: 112vw;
-    width: 140vw;
-    filter: drop-shadow(10px 10px 25px rgba(0, 0, 0, 0.25));
-    left: -25vw;
+    width: 50vw;
+    left: 10vw;
   }
   .agreement {
     position: absolute;
     display: flex;
     width: 264px;
-    bottom: 148px;
+    bottom: 45vw;
     left: 50%;
     transform: translateX(-50%);
     .index-selection {
@@ -318,7 +378,7 @@ const showAgreementText = ref(false)
   }
   .index-btn {
     position: absolute;
-    bottom: 64px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
   }

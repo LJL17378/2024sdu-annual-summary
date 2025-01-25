@@ -8,6 +8,16 @@
         <p>今年是你与世界相识的第<span>{{ age }}</span>年</p>
       </div>
     </fade-transition>
+      <div :class="['image-fish', { imgAppear: !transitionalValue }]">
+        <img src="../assets/img/age-flowers.png" alt="加载失败">
+      </div>
+      <div :class="['image', { imgAppear: !transitionalValue }]">
+        <img src="../assets/img/age-hand.png" alt="加载失败">
+      </div>
+
+      <div class="image-filter imgAppear">
+      <img src="../assets/img/filter.png" alt="加载失败">
+    </div>
   </div>
 </template>
 
@@ -53,12 +63,71 @@ const { year, month, day, age } = calculateAge(userData.value.birthday)
 
 <style scoped lang="scss">
 .page {
-  background-image: none;
+    width: 100%;
+    height: 100%;
+    margin:0px;
+    background: url("../assets/img/age-bg.png") no-repeat;
+    background-size:100% 100%;
+    background-attachment:fixed;
+
+  .image-filter {
+    position: absolute;
+
+    img {
+      width: 250vw;
+      opacity: 0.15;
+    }
+
+    &.imgAppear {
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .image {
+      position: absolute;
+      bottom:0;
+      right: -112%;
+      transition: all 1s ease-in-out;
+      img {
+        width: 100vw;
+        // height: 391px;
+      }
+      &.imgAppear {
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+    }
+    .image-fish {
+      position: absolute;
+      bottom:0;
+      right: 112%;
+      transition: all 1s ease-in-out;
+      img {
+        width: 100vw;
+        // height: 391px;
+      }
+      &.imgAppear {
+        right: 0;
+        top: 0;
+        overflow: hidden;
+      }
+    }
 }
 
 .text {
-  color: green;
-  left: 1.5em;
-  top: 20vh;
+  color: #68a40a;
+  position: absolute;
+      top: 25vh;
+      left: 2em;
+      opacity: 0;
+      font-size: 20px;
+      z-index: 1000;
+      line-height: 2;
+      transition: all 1s ease-in-out;
+      transition-delay: 0.5s;
+      &.textAppear {
+        opacity: 1;
+      }
 }
 </style>
