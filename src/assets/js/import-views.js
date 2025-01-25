@@ -1,11 +1,10 @@
 import Login from "@/views/login.vue";
 import P00Welcome from "@/views/p00_welcome.vue";
-// import P01Age from "@/views/p01_age.vue";
+import P01Age from "@/views/p01_age.vue";
 import P02Birthday from "@/views/p02_birthday.vue";
-// import P03SameBirth from "@/views/p03_samebirth.vue";
 import P04Hometown from "@/views/p04_hometown.vue";
-// import P05Classroom from "@/views/p05_classroom.vue";
-// import P06Course from "@/views/p06_course.vue";
+import P05Classroom from "@/views/p05_classroom.vue";
+import P06Course from "@/views/p06_course.vue";
 // import P07Morning8 from "@/views/p07_morning8.vue";
 // import P08Evening9 from "@/views/p08_evening9.vue";
 import P09LibStats from "@/views/p09_libstats.vue";
@@ -23,13 +22,12 @@ import P17Volunteering from "@/views/p17_volunteering.vue";
 
 export default [
   // Login,
-  P00Welcome,
+  // P00Welcome,
   // P01Age,
-  P02Birthday,
-  // P03SameBirth,
-  P04Hometown,
+  // P02Birthday,
+  // P04Hometown,
   // P05Classroom,
-  // P06Course,
+  P06Course,
   // P07Morning8,
   // P08Evening9,
   P09LibStats,

@@ -42,8 +42,11 @@ import returnImg from './assets/icons/return.vue';
 import music from './assets/icons/music.vue';
 import noMusic from './assets/icons/no_music.vue';
 import downArrowImg from './assets/icons/down_arrow.vue';
-import { requestUserData } from '@/assets/js/request.js';
+import userData from '@/assets/js/request.js';
 import audio from '@/assets/audio/bgm.mp3';
+
+console.log(userData.value);
+
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
@@ -81,6 +84,8 @@ window.addEventListener('resize', () => {
 // 不用路由了, 用动态组件都可
 // 当前组件的索引, 跟文件名字一样, 没有后缀名
 const currentIndex = ref(0);
+const next = () => currentIndex.value++;
+provide('next', next);
 
 // 音乐，单例模式
 const audioEl = new Audio(audio);
@@ -146,7 +151,6 @@ const subTransitional = ref(false);
 provide('setSubTransitional', (value) => (subTransitional.value = value));
 // 也提供给子组件使用
 provide('transitional', transitional);
-provide('currentIndex',currentIndex);
 
 const nextPage = () => {
   // 首页、最后一页、动画期间不翻页
@@ -154,7 +158,7 @@ const nextPage = () => {
     // || currentIndex.value === 0
     || subTransitional.value
   ) return;
-  currentIndex.value++;
+  next();
 };
 
 document.addEventListener('touchend', () => {

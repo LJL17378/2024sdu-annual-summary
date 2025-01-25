@@ -3,13 +3,13 @@
     <div>
       <fade-transition>
         <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-          <p>xx是你的家乡，</p>
+          <p>{{ userData.studentSource }}是你的家乡，</p>
           <br>
           <p>那是一个美丽的城市，</p>
           <p>你知道那里有什么特产吗？</p>
         </div>
         <div style="top: 60vh;text-align: right;" v-else-if="index === 2" class="text fade">
-          <p>有1111人与你来自同样的地区，</p>
+          <p>有{{ userData.sameStudentSource }}人与你来自同样的地区，</p>
           <p>来自同一片土地，</p>
           <p>天然的亲切感和默契把你们紧紧相连，</p>
           <p>无论身在何方，</p>
