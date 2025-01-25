@@ -9,13 +9,6 @@
       </div>
     </div>
 
-    <div class="text-ta">
-      <p>一年时光轻轻划过，</p>
-      <p>过去的一年满是美好的回忆，</p>
-      <p>快来按下按钮，</p>
-      <p>开启你的年度报告，</p>
-      <p>回味专属于你的2024，</p>
-    </div>
     <!-- <img
       class="index-title"
       src="@/assets/img/index_title.png"
@@ -26,6 +19,13 @@
     <!-- <indexImg class="index-img" /> -->
     <img class="clock" style="position: absolute;width: 140vw;left: 9vw;top: -60vw;" src="../assets/img/welcome-clock.png" alt="">
     <img class="index-img" src="../assets/img/welcome-sandglass.png" alt="加载失败" />
+    <div class="text-ta">
+      <p>一年时光轻轻划过，</p>
+      <p>过去的一年满是美好的回忆，</p>
+      <p>快来按下按钮，</p>
+      <p>开启你的年度报告，</p>
+      <p>回味专属于你的2024，</p>
+    </div>
     <div class="image-filter imgAppear">
       <img src="../assets/img/filter.png" alt="加载失败">
     </div>
