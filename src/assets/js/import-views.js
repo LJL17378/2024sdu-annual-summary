@@ -14,7 +14,7 @@ import P12Eating from "@/views/p12_eating.vue";
 import P13Spending from "@/views/p13_spending.vue";
 import P14Honor from "@/views/p14_honor.vue";
 import P15BusStats from "@/views/p15_busstats.vue";
-// import P16BusPrefer from "@/views/p16_busprefer.vue";
+import P16BusPrefer from "@/views/p16_busprefer.vue";
 import P17Volunteering from "@/views/p17_volunteering.vue";
 import P18Working from "@/views/p18_working.vue";
 import Summary from "@/views/summary.vue";
@@ -36,7 +36,7 @@ const views = [
   P13Spending,
   P14Honor,
   P15BusStats,
-  // P16BusPrefer,
+  P16BusPrefer,
   P17Volunteering,
   P18Working,
   Summary,

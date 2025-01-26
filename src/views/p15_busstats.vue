@@ -2,9 +2,9 @@
     <div class="bus">
       <div :class="['text', { textAppear: !transitionalValue }]">
         <!-- 到时候确定顺序了之后用index来判断修改 -->
-        <p class="big">这一年</p>
-        <p style="margin-top: 20px;">你在校车的穿梭中</p>
-        <p>体验了校园的四季更迭。</p>
+        <p style="margin-top: 30vh;" class="big">这一年</p>
+        <p style="margin-top: 20px;">校车共计运行<span class="bold">34522</span>台次，</p>
+        <p>疾驰的校车缩短了校区间的距离。</p>
         <!-- <p style="margin-top: 20px;">校车共发车<span class="bold">720</span>次，</p>
         <p>每一次都是知识与梦想的启航。</p>
         <p style="margin-top: 20px;">你搭乘校车共计<span class="bold">{{ busCount }}</span>次，</p>
@@ -16,6 +16,9 @@
       </div>
       <div class="image-hillside imgAppear">
         <img src="../assets/img/bus-hillside.png" alt="加载失败">
+      </div>
+      <div class="image-hillside imgAppear">
+        <img src="../assets/img/bus-cloud.png" alt="加载失败">
       </div>
       <div :class="['image-bus', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/bus-bus.png" alt="加载失败">
@@ -68,7 +71,7 @@ import userData from '../assets/js/request';
   
   <style scoped lang="scss">
   .bus {
-    z-index: -10;
+    z-index: -16;
     width: 100%;
     height: 100%;
     margin:0px;
@@ -84,9 +87,8 @@ import userData from '../assets/js/request';
       line-height: 1.5;
       transition: all 1s ease-in-out;
       transition-delay: 1s;
-      text-shadow: black 1px 1px 2px;
       color:#a8c6ef;
-
+      font-weight: 700;
       p.big{
         font-size: 26px;
       }
