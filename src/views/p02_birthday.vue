@@ -2,9 +2,7 @@
     <div class="birthday">
       <div :class="['text', { textAppear: !transitionalValue }]">
         <p>在SDU，</p>
-        <br>
-        <p>有<span class="bold">567</span>位同学与你一起庆祝生日，</p>
-        <br>
+        <p>有<span class="bold">{{ userData.sameBirthday }}</span>位同学与你一起庆祝生日，</p>
         <p>或许你认识他们。</p>
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
@@ -18,6 +16,7 @@
   
   <script setup>
   import { computed, inject, watch, ref } from 'vue'
+  import userData from '@/assets/js/request.js'
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
@@ -39,26 +38,14 @@
       position: absolute;
       top: 20vh;
       left: -100%;
-      font-size: 20px;
       z-index: 1000;
-      line-height: 1.5;
       transition: all 1s ease-in-out;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#cb8801;
-      }
-      span.bold{
-        display: inline-block;
-        font-size: 24px;
-        //加粗
-        font-weight: 700;
-        color: #a36f02;
-      }
+      color:#b57a02;
       &.textAppear {
         left: 8vw;
       }
       p {
-        margin: 0.5rem 0;
+        margin: 0.5em 0;
       }
     }
     .image-filter {

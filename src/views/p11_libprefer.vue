@@ -1,10 +1,10 @@
 <template>
     <div class="libprefer">
       <div :class="['text', { textAppear: !transitionalValue }]">
-        <p>你有<span class="bold">30</span>天在图书馆度过，</p>
-        <p>一共借阅了<span class="bold">5</span>本书，</p>
+        <p>你有<span class="bold">{{ libraryDay }}</span>天在图书馆度过，</p>
+        <p v-if="borrowNum">一共借阅了<span class="bold">{{ borrowNum }}</span>本书，</p>
         <p>其中，</p>
-        <p>你最喜欢待在<span class="bold">  </span>，</p>
+        <p>你最喜欢待在<span class="bold" style="font-size: 22px;">{{ preferLibrary }}</span>，</p>
         <p>这些书籍都将化作你进步的阶梯！</p>
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
@@ -21,13 +21,14 @@
   
   <script setup>
   import { computed, inject, watch, ref } from 'vue'
+  import userData from '../assets/js/request.js'
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
   watch(transitionalValue, () => {
     console.log('开始页面内动画')
   })
-  // const username = ref('xx');
+  const {libraryDay, borrowNum, preferLibrary} = userData.value;
   </script>
   
   <style scoped lang="scss">
@@ -40,30 +41,17 @@
     background-attachment:fixed;
     .text {
       position: absolute;
-      top: 10vh;
+      top: 15vh;
       left: -100%;
-      font-size: 20px;
       z-index: 1000;
-      line-height: 2;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#aad6ea;
-        font-weight: 700;
-      }
+      color:#aad6ea;
       span.bold{
-        display: inline-block;
-        font-size: 26px;
-        //加粗
-        font-weight: 700;
         color: #cfe8f3;
       }
       &.textAppear {
         left: 8vw;
-      }
-      p {
-        margin: 0.5rem 0;
       }
     }
     .image {

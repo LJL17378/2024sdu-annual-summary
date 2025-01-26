@@ -1,5 +1,8 @@
 <template>
   <div class="page">
+    <div style="width: 100%; height: 100%; background-color:  #cbcaca60;">
+
+    </div>
     <fade-transition>
       <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
         <p>阳光洒进<span class="bold">{{ userData.classroom }}</span>的窗，</p>
@@ -70,26 +73,15 @@ const index = ref(1)
 
 .text {
       position: absolute;
-      top: 25vh;
+      top: 20vh;
       opacity: 0;
-      left: 10vw;
-      font-size: 24px;
-      z-index: 1000;
+      text-align: right;
       line-height: 1.7;
+      right: 0.5em;
+      z-index: 1000;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#2175bd;
-        font-weight: 600;
-        text-align: right;
-      }
-      span.bold{
-        display: inline-block;
-        font-size: 36px;
-        font-weight: 700;
-        color: #001c71;
-      }
+      color:#155f9f;
       &.textAppear {
         opacity: 1;
       }

@@ -2,14 +2,13 @@
   <div class="hometown" ref="backgroundRef">
     <div>
       <fade-transition>
-        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-          <p>{{ userData.studentSource }}是你的家乡，</p>
-          <br>
-          <p>那是一个美丽的城市，</p>
+        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]" style="top: 20vh; line-height: 2;">
+          <p><b style="margin-left: 0; font-size: 22px;">{{ userData.studentSource }}</b>是你的家乡，</p>
+          <p>那是一个美丽的地方，</p>
           <p>你知道那里有什么特产吗？</p>
         </div>
-        <div style="top: 60vh;text-align: right;" v-else-if="index === 2" class="text fade">
-          <p>有{{ userData.sameStudentSource }}人与你来自同样的地区，</p>
+        <div style="top: 55vh; text-align: right; right: 0; opacity: 1;" v-if="index === 2" class="text fade">
+          <p>有<b>{{ userData.sameStudentSource }}</b>人与你来自同样的地区，</p>
           <p>来自同一片土地，</p>
           <p>天然的亲切感和默契把你们紧紧相连，</p>
           <p>无论身在何方，</p>
@@ -51,8 +50,6 @@ import userData from '@/assets/js/request.js'
 
 const transitional = inject('transitional')
 const transitionalValue = computed(() => transitional.value)
-
-
 
 const { start, end } = usePosition()
 const nextPage = inject('nextPageFunc')
@@ -99,24 +96,18 @@ document.addEventListener('touchend', subNextPage)
   background-attachment: fixed;
 
   .text {
-    position: absolute;
-    // max-width: 355px;
-    top: 150px;
-    left: -100%;
-    line-height: 2.5;
     transition: all 1s ease-in-out;
-    font-size: 18px;
-    font-weight: 700;
-    color: #0b1782;
+    color: #005fb3;
+    left: 10vw;
+    opacity: 0;
+  }
 
-    &.textAppear {
-      left: 10vw;
-    }
+  .textAppear {
+    opacity: 1;
   }
 
   .fade {
     position: absolute;
-    left: 10vw;
   }
 
   .image {

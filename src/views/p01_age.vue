@@ -2,10 +2,10 @@
   <div class="page">
     <fade-transition>
       <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-        <p>{{ year }}年{{ month }}月{{ day }}日</p>
-        <p>你睁开眼</p>
-        <p>向这个多姿多彩的世界问好</p>
-        <p>今年是你与世界相识的第<span>{{ age }}</span>年</p>
+        <p><b style="margin: 0;">{{ year }}年{{ month }}月{{ day }}日</b></p>
+        <p>你睁开眼，</p>
+        <p>向这个多姿多彩的世界问好，</p>
+        <p>今年是你与世界相识的第<b><span>{{ age }}</span></b>年。</p>
       </div>
     </fade-transition>
       <div :class="['image-fish', { imgAppear: !transitionalValue }]">
@@ -116,12 +116,11 @@ const { year, month, day, age } = calculateAge(userData.value.birthday)
 }
 
 .text {
-  color: #68a40a;
+  color: #58880b;
   position: absolute;
       top: 25vh;
       left: 2em;
       opacity: 0;
-      font-size: 20px;
       z-index: 1000;
       line-height: 2;
       transition: all 1s ease-in-out;

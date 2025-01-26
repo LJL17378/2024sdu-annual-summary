@@ -9,15 +9,15 @@
         <p>提醒你不要睡过头。</p>
       </div>
       <div v-if="index === 1 && userData.morningClass === 0" :class="['text', { textAppear: !transitionalValue }]">
-        <p>你的早课数量为<span class="bold">{{userData.morningClass}}！</span></p>
+        <p>你的早课数量为<span class="bold">0！</span></p>
         <p>当太阳升起，</p>
         <p>你却能惬意地躲在被窝，</p>
         <p>别人纷纷投来羡慕的目光。</p>
       </div>
     </fade-transition>
-    <div :class="['image-phone', { imgAppear: !transitionalValue }]">
+    <!-- <div :class="['image-phone', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/m8-phone.png" alt="加载失败">
-      </div>
+      </div> -->
       <div :class="['image-clouds', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/m8-cloud-small.png" alt="加载失败">
       </div>
@@ -177,23 +177,16 @@ const index = ref(1)
 
 .text {
       position: absolute;
-      top: 15.5vh;
+      top: 10vh;
       opacity: 0;
-      left: 16vw;
-      font-size: 24px;
+      left: 10vw;
       z-index: 1000;
-      line-height: 1.7;
+      line-height: 1.75;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#126845;
-        font-weight: 600;
-      }
-      span.bold{
-        display: inline-block;
-        font-size: 36px;
-        font-weight: 700;
+      color:#126845;
+      .bold {
+        font-size: 30px;
         color: #294635;
       }
       &.textAppear {

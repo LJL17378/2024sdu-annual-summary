@@ -45,16 +45,14 @@
     .text {
       position: absolute;
       opacity: 0;
-      bottom: 50vh;
+      bottom: 52vh;
       left: 8vw;
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 17.5px;
       z-index: 1000;
-      line-height: 1.5;
+      line-height: 1.6;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       p{
-        font-family: 'Microsoft YaHei UI';
         color:#aad6ea;
       }
       p.big{
@@ -62,8 +60,7 @@
       }
       span.bold{
         display: inline-block;
-        font-size: 18px;
-        //加粗
+        font-size: 20px;
         font-weight: 700;
         color: #cfe8f3;
       }

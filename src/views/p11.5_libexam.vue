@@ -2,8 +2,8 @@
     <div class="libprefer">
       <div :class="['text', { textAppear: !transitionalValue }]">
         <p>在忙碌的期末周，</p>
-        <p>图书馆的大门被推开xx次，</p>
-        <p>安静的图书馆里坐满了一排排用功的身影，</p>
+        <p>图书馆的大门被推开<b>{{ userData.libraryTimeOnTest }}</b>次，</p>
+        <p>安静的图书馆里</p><p>坐满了一排排用功的身影，</p>
         <p>其中有你的身影吗？</p>
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
@@ -14,6 +14,7 @@
   
   <script setup>
   import { computed, inject, watch, ref } from 'vue'
+  import userData from '../assets/js/request.js'
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
@@ -33,31 +34,19 @@
     background-attachment:fixed;
     .text {
       position: absolute;
-      top: 20vh;
+      top: 25vh;
       opacity: 0;
       left: 8vw;
-      font-size: 20px;
       z-index: 1000;
-      line-height: 2;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#aad6ea;
-        font-weight: 700;
-      }
+      color:#aad6ea;
+      line-height: 2;
       span.bold{
-        display: inline-block;
-        font-size: 26px;
-        //加粗
-        font-weight: 700;
-        color: #cfe8f3;
+        color: #edf9ff;
       }
       &.textAppear {
         opacity: 1;
-      }
-      p {
-        margin: 0.5rem 0;
       }
     }
     .image {

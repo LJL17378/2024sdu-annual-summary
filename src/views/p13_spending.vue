@@ -4,15 +4,12 @@
         <p class="big">过去一年</p>
         <p style="margin-top: 20px;">你的校园卡消费记录</p>
         <p>显示了你在食堂的点点滴滴。</p>
-        <br>
-        <p>你最早的用餐时间是<span class="bold">早晨7:10</span></p>
-        <p style="margin-left: 8vw;">最晚的用餐时间是<span class="bold">夜晚10:10</span></p>
-        <br>
-        <p>无论是晨光初露还是星光闪烁，</p>
+        <p style="margin-top: 20px;">你最早的用餐时间是<span class="bold">{{ earliestCanteen }}</span></p>
+        <p style="margin-left: 8vw;">最晚的用餐时间是<span class="bold">{{ latestCanteen }}</span></p>
+        <p style="margin-top: 20px;">无论是晨光初露还是星光闪烁，</p>
         <p style="margin-left: 20vw;">我们的食堂始终为你守候。</p>
-        <br>
-        <p>你最常去的食堂是</p>
-        <p style="margin-left: 10vw;"><span class="bold">软件园风味餐厅</span></p>
+        <p style="margin-top: 20px;">你最常去的食堂是</p>
+        <p style="margin-left: 10vw;"><span class="bold">{{ preferCanteen[0] || preferCanteen }}</span></p>
         <p style="margin-left: 8vw;">你的足迹最频繁出现在这里，</p>
         <p style="margin-left: 15vw;">它的味道一定最合你的心意。</p>
       </div>
@@ -32,6 +29,8 @@
   import { computed, inject, watch, ref } from 'vue'
   import beginImg from '../assets/svg/begin_svg.vue'
   import userData from '../assets/js/request';
+
+  const {earliestCanteen, latestCanteen, preferCanteen} = userData.value;
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
@@ -52,31 +51,20 @@
     overflow-y: hidden;
     .text {
       position: absolute;
-      top: 8vh;
+      top: 12vh;
       left: -100%;
-      font-size: 20px;
       z-index: 1000;
-      line-height: 1.5;
+      line-height: 1.8;
       transition: all 1s ease-in-out;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#7d0000;
-      }
+      color:#7d0000;
       p.big{
-        font-size: 40px;
+        font-size: 26px;
       }
       span.bold{
-        display: inline-block;
-        font-size: 26px;
-        //加粗
-        font-weight: 700;
-        color: #e60012;
+        color: #ab000e;
       }
       &.textAppear {
         left: 8vw;
-      }
-      p {
-        margin: 0.5rem 0;
       }
     }
     .image {

@@ -93,25 +93,17 @@ const index = ref(1)
 
 .text {
       position: absolute;
-      top: 10vh;
+      top: 15vh;
       opacity: 0;
       left: 10vw;
-      font-size: 24px;
       z-index: 1000;
       line-height: 1.7;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#126845;
-        font-weight: 600;
-      }
-      span.bold{
-        display: inline-block;
-        font-size: 36px;
-        font-weight: 700;
+      .bold {
         color: #294635;
       }
+      color:#126845;
       &.textAppear {
         opacity: 1;
       }

@@ -1,16 +1,17 @@
 .bold, b {
-	font-size: 28px;
+	font-size: 26px;
 	font-weight: bold;
+	font-family: '黑体';
 	margin: 0 5px;
 }
 
 .text {
+	font-family: '黑体';
 	font-size: 22px;
 	max-width: 100vw;
   	z-index: 10;
 	line-height: 2em;
 	position: absolute;
-	left: 0;
 }
 
 .page {

@@ -99,20 +99,14 @@ const index = ref(1)
       top: 10vh;
       opacity: 0;
       left: 10vw;
-      font-size: 24px;
       z-index: 1000;
       line-height: 1.7;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#126845;
-        font-weight: 600;
-      }
-      span.bold{
-        display: inline-block;
-        font-size: 36px;
-        font-weight: 700;
+      color:#126845;
+
+      .bold{
+        font-size: 30px;
         color: #294635;
       }
       &.textAppear {

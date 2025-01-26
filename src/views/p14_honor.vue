@@ -4,8 +4,8 @@
         <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
         <p>今年，</p>
           <p>你获得了</p>
-          <p v-for="(item,index) in userData.scholarship" v-if="index < 2"><span class="bold">{{ item }}</span>，</p>
-          <p v-for="(item,index) in userData.honor" v-if="index < 2"><span class="bold">{{ item }}</span>荣誉称号，</p>
+          <p v-for="(item,index) in userData.scholarship" v-if="index < 2"><span class="bold" style="margin: 0;">{{ item }}</span>，</p>
+          <p v-for="(item,index) in userData.honor" v-if="index < 2"><span class="bold" style="margin: 0;">{{ item }}</span>荣誉称号，</p>
           <p>共计获得<span class="bold">{{ userData.scholarship.length + userData.honor.length }}</span>次荣誉，</p>
           <p>快奖励自己一朵小红花！</p>
         </div>
@@ -95,20 +95,13 @@
         top: 50vw;
         opacity: 0;
         left: 20vw;
-        font-size: 18px;
         z-index: 1000;
         line-height: 1.4;
         transition: all 1s ease-in-out;
         transition-delay: 1s;
-        p{
-          font-family: 'Microsoft YaHei UI';
-          color:#601a03;
-          font-weight: 600;
-        }
+        color:#601a03;
         span.bold{
-          display: inline-block;
-          font-size: 22px;
-          font-weight: 700;
+          font-size: 24px;
           color: #992a05;
         }
         &.textAppear {
