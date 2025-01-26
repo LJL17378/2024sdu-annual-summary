@@ -53,7 +53,7 @@ function calculateAge(birthStr) {
         age--; // 未过生日则减1岁
     }
     
-    return {year, month, day, age};
+    return {year, month: month + 1, day, age};
 }
 
 // 示例用法
@@ -116,9 +116,9 @@ const { year, month, day, age } = calculateAge(userData.value.birthday)
 }
 
 .text {
-  color: #58880b;
+  color: #4d7a04;
   position: absolute;
-      top: 25vh;
+      top: 28vh;
       left: 2em;
       opacity: 0;
       z-index: 1000;

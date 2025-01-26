@@ -17,14 +17,14 @@
 
     <!-- <indexTitle class="index-title" /> -->
     <!-- <indexImg class="index-img" /> -->
-    <img class="clock" style="position: absolute;width: 140vw;left: 9vw;top: -60vw;" src="../assets/img/welcome-clock.png" alt="">
+    <img class="clock" style="position: absolute;width: 110vw;left: 20vw;top: -60vw;" src="../assets/img/welcome-clock.png" alt="">
     <img class="index-img" src="../assets/img/welcome-sandglass.png" alt="加载失败" />
     <div class="text-ta">
       <p>一年时光轻轻划过，</p>
       <p>过去的一年满是美好的回忆，</p>
       <p>快来按下按钮，</p>
       <p>开启你的年度报告，</p>
-      <p>回味专属于你的2024，</p>
+      <p>回味专属于你的2024！</p>
     </div>
     <div class="image-filter imgAppear">
       <img src="../assets/img/filter.png" alt="加载失败">
@@ -207,8 +207,8 @@ const showAgreementText = ref(false)
     bottom: 60vw;
     p{
       text-align: center;
-      line-height: 2;
-      font-size: 20px;
+      line-height: 1.9;
+      font-size: 18px;
     }
   }
   width: 100%;
@@ -307,9 +307,9 @@ const showAgreementText = ref(false)
   .index-img {
     animation: smallShake infinite 5s linear;
     position: absolute;
-    top: 20vw;
+    top: 10vw;
     // width: 112vw;
-    width: 50vw;
+    width: 45vw;
     left: 10vw;
   }
   .agreement {
@@ -320,12 +320,12 @@ const showAgreementText = ref(false)
     left: 50%;
     transform: translateX(-50%);
     .index-selection {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       margin-right: 12px;
     }
     .index-text {
-      font-size: 16px;
+      font-size: 14px;
       color: #766a6a;
     }
     &.shake {

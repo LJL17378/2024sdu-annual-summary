@@ -41,7 +41,7 @@
     background-attachment:fixed;
     .text {
       position: absolute;
-      top: 15vh;
+      top: 10vh;
       left: -100%;
       z-index: 1000;
       transition: all 1s ease-in-out;
@@ -56,8 +56,7 @@
     }
     .image {
       position: absolute;
-      bottom:-32vh;
-      right: 150%;
+      top: 0;
       transition: all 1s ease-in-out;
       img {
         width: 100vw;
@@ -70,12 +69,11 @@
     }
     .image-birds {
       position: absolute;
-      bottom:-8vh;
-      right: 112%;
+      top: 5vw;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       img {
-        width: 100vw;
+        width: 90vw;
         // height: 391px;
       }
       &.imgAppear {

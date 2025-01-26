@@ -45,24 +45,24 @@
     .text {
       position: absolute;
       opacity: 0;
-      bottom: 52vh;
-      left: 8vw;
+      top: 43vw;
+      left: 7vw;
       font-size: 17.5px;
       z-index: 1000;
-      line-height: 1.6;
+      line-height: 1.7;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       p{
-        color:#aad6ea;
+        color:#bfe4f5;
       }
       p.big{
         font-size: 40px;
       }
       span.bold{
         display: inline-block;
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 700;
-        color: #cfe8f3;
+        color: #64cbf7;
       }
       &.textAppear {
         opacity: 1;
@@ -77,7 +77,7 @@
       right: -112%;
       transition: all 1s ease-in-out;
       img {
-        width: 100vw;
+        width: 80vw;
         // height: 391px;
       }
       &.imgAppear {
@@ -88,11 +88,10 @@
     }
     .image-fish {
       position: absolute;
-      bottom:0;
-      right: 112%;
+      left: 2vw;
       transition: all 1s ease-in-out;
       img {
-        width: 100vw;
+        width: 80vw;
         // height: 391px;
       }
       &.imgAppear {

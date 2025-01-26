@@ -34,13 +34,13 @@
     background-attachment:fixed;
     .text {
       position: absolute;
-      top: 25vh;
+      top: 22vh;
       opacity: 0;
       left: 8vw;
       z-index: 1000;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      color:#aad6ea;
+      color:#d5eefa;
       line-height: 2;
       span.bold{
         color: #edf9ff;

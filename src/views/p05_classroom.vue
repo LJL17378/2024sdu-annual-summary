@@ -1,8 +1,6 @@
 <template>
   <div class="page">
-    <div style="width: 100%; height: 100%; background-color:  #cbcaca60;">
-
-    </div>
+    <div style="width: 100%; height: 100%; background-color:  #cbcaca60;"></div>
     <fade-transition>
       <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
         <p>阳光洒进<span class="bold">{{ userData.classroom }}</span>的窗，</p>
@@ -60,7 +58,7 @@ const index = ref(1)
       left: -112%;
       transition: all 1s ease-in-out;
       img {
-        width: 100vw;
+        width: 90vw;
         // height: 391px;
       }
       &.imgAppear {
@@ -73,7 +71,7 @@ const index = ref(1)
 
 .text {
       position: absolute;
-      top: 20vh;
+      top: 18vh;
       opacity: 0;
       text-align: right;
       line-height: 1.7;
@@ -81,7 +79,7 @@ const index = ref(1)
       z-index: 1000;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      color:#155f9f;
+      color:#094d88;
       &.textAppear {
         opacity: 1;
       }

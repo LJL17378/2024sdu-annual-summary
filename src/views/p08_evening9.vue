@@ -62,8 +62,7 @@ const index = ref(1)
   }
   .image-person {
       position: absolute;
-      bottom:-76%;
-      left: 0;
+      top: -15vw;
       transition: all 1s ease-in-out;
       img {
         width: 100vw;
@@ -96,17 +95,17 @@ const index = ref(1)
 
 .text {
       position: absolute;
-      top: 10vh;
+      top: 15vh;
       opacity: 0;
       left: 10vw;
       z-index: 1000;
+      font-size: 18px;
       line-height: 1.7;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       color:#126845;
 
       .bold{
-        font-size: 30px;
         color: #294635;
       }
       &.textAppear {

@@ -63,7 +63,8 @@ const index = ref(1)
       left: 0;
       transition: all 1s ease-in-out;
       img {
-        width: 100vw;
+        padding-left: 10vw;
+        width: 90vw;
         // height: 391px;
       }
       &.imgAppear {
@@ -75,10 +76,10 @@ const index = ref(1)
     .image-others {
       position: absolute;
       top:0;
-      right: -112%;
+      left: 20vw;
       transition: all 1s ease-in-out;
       img {
-        width: 100vw;
+        width: 80vw;
         // height: 391px;
       }
       &.imgAppear {
@@ -95,13 +96,14 @@ const index = ref(1)
       position: absolute;
       top: 15vh;
       opacity: 0;
-      left: 10vw;
+      left: 2em;
       z-index: 1000;
       line-height: 1.7;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
+      font-size: 18px;
       .bold {
-        color: #294635;
+        color: #336046;
       }
       color:#126845;
       &.textAppear {
