@@ -6,9 +6,11 @@
         <p>收获报酬共计<span class="bold">2299.25</span>万元。</p>
         <p>在缓解生活压力的同时丰富了实践经验</p>
         <p>提升了工作技能</p>
-        <p>其中，</p>
-        <p>你在<span class="bold">学生在线</span>工作过</p>
-        <p>用汗水换取丰厚的劳动果实。</p>
+        <div v-if="workStudy">
+          <p>其中，</p>
+          <p>你在<span class="bold">{{ workStudy }}</span>工作过</p>
+         <p>用汗水换取丰厚的劳动果实。</p>
+        </div>  
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/working-right.png" alt="加载失败">
@@ -27,13 +29,15 @@
   
   <script setup>
   import { computed, inject, watch, ref } from 'vue'
+import userData from '../assets/js/request'
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
   watch(transitionalValue, () => {
     console.log('开始页面内动画')
   })
-  // const username = ref('xx');
+  const { workStudy } = userData.value;
+
   </script>
   
   <style scoped lang="scss">

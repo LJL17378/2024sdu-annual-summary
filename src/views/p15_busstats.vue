@@ -5,11 +5,11 @@
         <p class="big">这一年</p>
         <p style="margin-top: 20px;">你在校车的穿梭中</p>
         <p>体验了校园的四季更迭。</p>
-        <p style="margin-top: 20px;">校车共发车<span class="bold">720</span>次，</p>
+        <!-- <p style="margin-top: 20px;">校车共发车<span class="bold">720</span>次，</p>
         <p>每一次都是知识与梦想的启航。</p>
-        <p style="margin-top: 20px;">你搭乘校车共计<span class="bold">300</span>次，</p>
+        <p style="margin-top: 20px;">你搭乘校车共计<span class="bold">{{ busCount }}</span>次，</p>
         <p>跨越校区的每一次</p>
-        <p>都是对学术探索的执着追求。</p>
+        <p>都是对学术探索的执着追求。</p> -->
       </div>
       <div :class="['image-light', { LightImgAppear: !transitionalValue }]">
         <img src="../assets/img/bus-light.png" alt="加载失败">
@@ -54,6 +54,9 @@
   import flower from '../components/flower.vue';
   import { computed, inject, watch} from 'vue'
 import Flower from '../components/flower.vue';
+import userData from '../assets/js/request';
+
+  const {busCount, busNumber} = userData.value;
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)

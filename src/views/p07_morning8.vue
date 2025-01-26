@@ -1,14 +1,14 @@
 <template>
   <div class="page">
     <fade-transition>
-      <div v-if="index === 1 && userData.morningClass != 0" :class="['text', { textAppear: !transitionalValue }]">
+      <div v-if="userData.morningClass != 0" :class="['text', { textAppear: !transitionalValue }]">
         <p>在今年，</p>
         <p>你共有<span class="bold">{{userData.morningClass}}</span>节早课。</p>
         <p>一日之计在于晨，</p>
         <p>闹铃叮叮当，</p>
         <p>提醒你不要睡过头。</p>
       </div>
-      <div v-if="index === 1 && userData.morningClass === 0" :class="['text', { textAppear: !transitionalValue }]">
+      <div v-else :class="['text', { textAppear: !transitionalValue }]">
         <p>你的早课数量为<span class="bold">0！</span></p>
         <p>当太阳升起，</p>
         <p>你却能惬意地躲在被窝，</p>

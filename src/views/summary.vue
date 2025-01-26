@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <fade-transition>
-      <!-- <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
+      <div v-if="grade === 1" :class="['text', { textAppear: !transitionalValue }]">
         <p>你好，新同学！</p>
         <p>欢迎来到sdu的大家庭！</p>
         <p>初入大学，</p>
@@ -15,36 +15,8 @@
         <p>新一代正如冉冉升起的朝阳，</p>
         <p>未来属于你们年轻人，</p>
         <p>期待你的成长与进步！</p>
-      </div> -->
-      <!-- <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-        <p>走过又一年大学时光，</p>
-        <p>你眼神更加坚毅。</p>
-        <p>求学路上总会有些许风霜，</p>
-        <p>可那不过是你生活的调味剂。</p>
-        <p>大学的旅程即将过半，</p>
-        <p>你或许已经意识到，</p>
-        <p>这几年精彩纷呈的经历，</p>
-        <p>将会是你人生中重要的宝藏。</p>
-        <p>请奋力向前奔跑，</p>
-        <p>在人生的旷野上追逐理想，</p>
-        <p>相信你会攀上人生的最高峰！</p>
-      </div> -->
-      <!-- <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-        <p>时光荏苒，</p>
-        <p>回首光阴已逝。</p>
-        <p>美好的大学生活已经过半，</p>
-        <p>回味过去的种种，</p>
-        <p>是否有千百种滋味一齐涌上心头？</p>
-        <p>在过去的时间里，</p>
-        <p>你日日苦读，</p>
-        <p>熬过了岁月的风吹日晒，</p>
-        <p>终于小有所成。</p>
-        <p>看向一片光明的未来，</p>
-        <p>你应当为自己而骄傲。</p>
-        <p>全力以赴，不负韶华，</p>
-        <p>剩下的时光也要加油！</p>
-      </div> -->
-      <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
+      </div>
+      <div v-else-if="grade === 5 || (grade === 4 && !is5)" :class="['text', { textAppear: !transitionalValue }]">
         <p>大学生活的列车即将到站，</p>
         <p>你即将迈出校园，踏入社会。</p>
         <p>或许你已经做好下一步的安排，</p>
@@ -59,20 +31,44 @@
         <p>祝愿你征程归来仍不忘初心，</p>
         <p>用开阔的胸怀拥抱未来。</p>
       </div>
+      <div v-else-if="(grade === 4 && is5) || (grade === 3 && !is5)" :class="['text', { textAppear: !transitionalValue }]">
+        <p>时光荏苒，</p>
+        <p>回首光阴已逝。</p>
+        <p>美好的大学生活已经过半，</p>
+        <p>回味过去的种种，</p>
+        <p>是否有千百种滋味一齐涌上心头？</p>
+        <p>在过去的时间里，</p>
+        <p>你日日苦读，</p>
+        <p>熬过了岁月的风吹日晒，</p>
+        <p>终于小有所成。</p>
+        <p>看向一片光明的未来，</p>
+        <p>你应当为自己而骄傲。</p>
+        <p>全力以赴，不负韶华，</p>
+        <p>剩下的时光也要加油！</p>
+      </div>
+      <div v-else :class="['text', { textAppear: !transitionalValue }]">
+        <p>走过又一年大学时光，</p>
+        <p>你眼神更加坚毅。</p>
+        <p>求学路上总会有些许风霜，</p>
+        <p>可那不过是你生活的调味剂。</p>
+        <p>大学的旅程即将过半，</p>
+        <p>你或许已经意识到，</p>
+        <p>这几年精彩纷呈的经历，</p>
+        <p>将会是你人生中重要的宝藏。</p>
+        <p>请奋力向前奔跑，</p>
+        <p>在人生的旷野上追逐理想，</p>
+        <p>相信你会攀上人生的最高峰！</p>
+      </div>
     </fade-transition>
   </div>
 </template>
 
 <script setup>
-import { computed, inject, watch, ref } from 'vue'
-import { usePosition } from '@/assets/js/utils.js'
 import FadeTransition from '@/components/fade-transition.vue'
 import userData from '@/assets/js/request.js'
 
-const transitional = inject('transitional')
-const transitionalValue = computed(() => transitional.value)
-
-const index = ref(1)
+const { grade, major } = userData.value;
+const is5 = major.includes("5") || major.includes("五年")
 </script>
 
 <style scoped lang="scss">

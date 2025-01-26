@@ -5,11 +5,8 @@
         <p style="text-align: right;">你的校园卡见证了</p>
         <p style="text-align: right;">你在校园里的每一次用餐</p>
         <p style="margin-top: 4vw;margin-left: 20px;">你的年度最高单笔消费记录是</p>
-        <p style="margin-left: 30vw;"><span class="bold">{{ latestCanteen }}元</span></p>
-        <p style="margin-top: 20px;">这笔消费发生在</p>
-        <p style="margin-left: 8vw;"><span class="bold">{{ latestCanteen }}</span></p>
-        <p style="margin-left: 10vw;">地点在</p>
-        <p style="margin-left: 20vw;"><span class="bold">{{ preferCanteen[0] || preferCanteen }}</span></p>
+        <p style="margin-left: 30vw;"><span class="bold">{{ maxAmount }}元</span></p>
+        <p style="margin-top: 20px;">这笔消费发生在<span class="bold">{{ maxAmountCanteen }}</span></p>
         <p style="margin-left: 8vw;">那可能是你为了</p>
         <p style="margin-left: 15vw;">庆祝某个特别的日子</p>
         <p style="margin-left: 8vw;">而犒劳自己的一顿大餐。</p>
@@ -31,7 +28,7 @@
   import beginImg from '../assets/svg/begin_svg.vue'
   import userData from '../assets/js/request';
 
-  const {earliestCanteen, latestCanteen, preferCanteen} = userData.value;
+  const {maxAmount, maxAmountCanteen} = userData.value;
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)

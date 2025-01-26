@@ -7,14 +7,18 @@
       <!-- <shareImg class="share-icon" /> -->
     </div>
     <div class="footer">
-      <p class="text" v-if="currentIndex <= 4">*数据仅来源于济南校本部本科生</p>
-      <p class="text" v-else-if="currentIndex <= 7">
+      <p class="text" v-if="currentIndex === 0 && userData" @click="clearCache">*清除缓存数据</p>
+      <p class="text" v-if="currentIndex <= 7 && currentIndex >= 5">
         * 数据取自于学生个人课表
       </p>
+      <p class="text" v-else-if="currentIndex === 17">
+        * 数据来自一校三地
+      </p>
+      <p class="text" v-else-if="![0, views.length - 1].includes(currentIndex)" >*数据仅来源于济南校本部本科生</p>
       <!-- 如果在第一页或最后一页，则不显示下箭头 -->
       <downArrowImg
         class="down-arrow"
-        @click="next"
+        @click="nextPage"
         v-if="
           currentIndex !== 0 &&
           currentIndex !== views.length - 1 
@@ -36,14 +40,22 @@
 <script setup>
 import { provide, ref, computed } from 'vue';
 import { usePosition } from '@/assets/js/utils.js';
-import views from '@/assets/js/import-views.js';
+import views, { nextIndex } from '@/assets/js/import-views.js';
 import music from './assets/icons/music.vue';
 import noMusic from './assets/icons/no_music.vue';
 import downArrowImg from './assets/icons/down_arrow.vue';
 import userData from '@/assets/js/request.js';
 import audio from '@/assets/audio/bgm.mp3';
 
-console.log(userData.value);
+const data = localStorage.getItem('data');
+if (data) userData.value = JSON.parse(data);
+
+function clearCache() {
+  if (!confirm("该操作将清除缓存数据，您可以再次登录获取数据。是否继续？")) return;
+  userData.value = null;
+  localStorage.removeItem('data');
+  alert("浏览器缓存已清除");
+}
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
@@ -81,7 +93,10 @@ window.addEventListener('resize', () => {
 // 不用路由了, 用动态组件都可
 // 当前组件的索引, 跟文件名字一样, 没有后缀名
 const currentIndex = ref(0);
-const next = () => currentIndex.value++;
+const next = () => {
+  transitionStyle.value = 'straight-translate-Y'
+  currentIndex.value = nextIndex(currentIndex.value + 1);
+}
 provide('next', next);
 
 // 音乐，单例模式
@@ -152,19 +167,27 @@ provide('transitional', transitional);
 const nextPage = () => {
   // 首页、最后一页、动画期间不翻页
   if (views.length === currentIndex.value + 1 
-    // || currentIndex.value === 0
+    || currentIndex.value === 0
     || subTransitional.value
   ) return;
   next();
 };
 
+const prevPage = () => {
+  transitionStyle.value = 'straight-translate-Y-up'
+  if (views.length === currentIndex.value + 1 
+    || currentIndex.value === 0
+    || subTransitional.value
+  ) return;
+  currentIndex.value = nextIndex(currentIndex.value - 1, -1);
+}
+
 document.addEventListener('touchend', () => {
   // 只有当滑动距离超过屏幕高度的 20% 时才翻页
-  if (
-    !transitional.value &&
-    start.value.y - end.value.y > window.innerHeight * 0.2
-  )
+  if (start.value.y - end.value.y > window.innerHeight * 0.2)
     nextPage();
+  else if (start.value.y - end.value.y < - window.innerHeight * 0.2)
+    prevPage();
 });
 
 provide('nextPageFunc', nextPage);

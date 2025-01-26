@@ -2,10 +2,11 @@
   <div class="index">
     <div class="login_card" v-if="showPopup">
       <div v-if="showPopup" class="popup">
-        <div class="text">使用统一认证登录</div>
+        <img class="close" src="../assets/svg/close.svg" alt="关闭" @click="showPopup = false"/>
+        <div style="margin-top: 20px; margin-bottom: 1em;">统一认证登录</div>
         <input type="text" v-model="studentId" placeholder="学号" />
         <input type="password" v-model="password" placeholder="密码" />
-        <button @click="login">{{ isLoading ? '登录中' : '登录' }}</button>
+        <button @click="login" :class="{loading: isLoading}">{{ isLoading ? '登录中' : '登录' }}</button>
       </div>
     </div>
 
@@ -19,7 +20,7 @@
     <!-- <indexImg class="index-img" /> -->
     <img class="clock" style="position: absolute;width: 110vw;left: 20vw;top: -60vw;" src="../assets/img/welcome-clock.png" alt="">
     <img class="index-img" src="../assets/img/welcome-sandglass.png" alt="加载失败" />
-    <div class="text-ta">
+    <div class="text-ta" v-if="!showPopup">
       <p>一年时光轻轻划过，</p>
       <p>过去的一年满是美好的回忆，</p>
       <p>快来按下按钮，</p>
@@ -78,7 +79,7 @@ import indexTitle from '../assets/svg/index_title.vue';
 import selectImg from '../assets/icons/select.vue';
 import noSelectImg from '../assets/icons/no_select.vue';
 import indexBtn from '../assets/svg/index_btn.vue';
-import { requestUserData } from '../assets/js/request';
+import userData, { requestUserData } from '../assets/js/request';
 const showPopup = ref(false);
 const nextPage = inject('nextPageFunc');
 const next = inject('next')
@@ -94,15 +95,16 @@ const isShaking = ref(false);
 // });
 
 const checkAgree = () => {
-  if (agree.value) {
-    // nextPage();
-    showPopup.value = true;
-  } else {
+  if (!agree.value) {
     //授权协议图标抖动且闪烁
     isShaking.value = true;
     setTimeout(() => {
       isShaking.value = false;
     }, 500);
+  } else if (userData.value) {
+    next();
+  } else {
+    showPopup.value = true;
   }
 };
 const isLoading = ref(false);
@@ -114,13 +116,14 @@ const login = async () => {
   // console.log('studentId:', studentId.value);
   // console.log('password:', password.value);
   // 捕获错误
+  if (isLoading.value) return;
   try {
     isLoading.value = true;
-    // await requestUserData(studentId.value, password.value);
-    // 我这里先跳过了具体的登录逻辑
+    await requestUserData(studentId.value, password.value);
+    localStorage.setItem('data', JSON.stringify(userData.value));
     isLoading.value = false;
     showPopup.value = false;
-    next()
+    next();
   } catch (error) {
     console.log('error:', error);
     isLoading.value = false;
@@ -237,7 +240,7 @@ const showAgreementText = ref(false)
     position: absolute;
     top: 32vh;
     left: 50%;
-    background-color: #f7f7f7;
+    background-color: #f7f7f7c4;
     box-shadow: 0px 4px 4px rgba(68, 68, 68, 0.25);
     width: 312px;
     height: 256px;
@@ -265,9 +268,13 @@ const showAgreementText = ref(false)
       color: #766a6a;
       cursor: pointer;
     }
+    button.loading {
+      background-color: plum !important;
+      color: white !important;
+    }
     .popup {
-      width: 312px;
-      height: 256px;
+      padding: 20px;
+      height: max-content;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -275,7 +282,7 @@ const showAgreementText = ref(false)
       flex-direction: column;
       align-items: center;
       input {
-        width: 200px;
+        width: 240px;
         height: 40px;
         margin: 10px 0;
         padding: 0 10px;
@@ -294,6 +301,16 @@ const showAgreementText = ref(false)
         color: #766a6a;
         cursor: pointer;
       }
+      .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+    }
     }
   }
   .index-title {
@@ -335,7 +352,7 @@ const showAgreementText = ref(false)
   .agreement_card {
     position: absolute;
     bottom: 7vh;
-    padding: 20px 15px;
+    padding: 20px;
     width: 75vw;
     height: 80vh;
     left: 50%;
@@ -356,12 +373,12 @@ const showAgreementText = ref(false)
       height: 24px;
     }
     .title {
-      font-size: 22px;
-      line-height: 48px;
+      font-size: 20px;
+      line-height: 40px;
       text-align: center;
     }
     .sub-title {
-      font-size: 20px;
+      font-size: 18px;
       line-height: 40px;
       font-weight: 700;
     }
@@ -371,7 +388,7 @@ const showAgreementText = ref(false)
     p {
       margin: 15px 0;
       text-indent: 1.5em;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 24px;
       color: #766a6a;
     }

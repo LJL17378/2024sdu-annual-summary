@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import axios from 'axios'
 
 // 创建一个ref对象，用于存储用户数据
-const userData = ref({"studentId":"202300300075","name":"林星宇","birthday":"20040916","sameBirthday":65,"academy":"软件学院","major":"软件工程","studentSource":"浙江省","sameStudentSource":578,"classroom":"软件园1区307d","courseNum":26,"courseCredit":58,"morningClass":94,"eveningClass":70,"libraryDay":71,"borrowNum":0,"preferLibrary":"软件园校区图书馆","libraryTimeOnTest":11,"preferCanteen":["齐鲁软件学生二食堂"],"maxAmount":"20","maxAmountTime":"2025-01-01 17:37:50.0","maxAmountCanteen":"齐鲁软件学生一食堂","scholarship":["国家奖学金","特长奖一等（研究创新类）"],"honor":["三好学生"],"busCount":19,"busNumber":"鲁A57007","volunteerCount":14,"volunteerDuration":"123","workStudy":"学生在线"})
+const userData = ref(null)
 
 export const requestUserData =
   async (id, password) => {

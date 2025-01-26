@@ -9,7 +9,7 @@ import P08Evening9 from "@/views/p08_evening9.vue";
 import P09LibStats from "@/views/p09_libstats.vue";
 import P10HotBook from "@/views/p10_hotbook.vue";
 import P11LibPrefer from "@/views/p11_libprefer.vue";
-import P115_libexam from "../../views/p11.5_libexam.vue";
+import P115_libexam from "@/views/p11.5_libexam.vue";
 import P12Eating from "@/views/p12_eating.vue";
 import P13Spending from "@/views/p13_spending.vue";
 import P14Honor from "@/views/p14_honor.vue";
@@ -19,7 +19,7 @@ import P17Volunteering from "@/views/p17_volunteering.vue";
 import P18Working from "@/views/p18_working.vue";
 import Summary from "@/views/summary.vue";
 
-export default [
+const views = [
   Login,
   P01Age,
   P02Birthday,
@@ -41,3 +41,33 @@ export default [
   P18Working,
   Summary,
 ];
+export default views;
+
+import userData from "./request";
+
+export function nextIndex(idx, step = 1) {
+  if (!userData.value) return 0;
+  const { 
+    studentSource, maxAmount, libraryDay, busCount, libraryTimeOnTest, classroom, courseNum,
+    honor, scholarship, volunteerCount, preferCanteen, birthday, sameBirthday
+  } = userData.value;
+  while (true) {
+    const view = views[idx];
+    if (
+      ((view === P01Age || view === P02Birthday) & !birthday) ||
+      (view === P02Birthday & !sameBirthday) || 
+      (view === P04Hometown && !studentSource) ||
+      (view === P05Classroom && !classroom) ||
+      ((view === P06Course || view === P07Morning8 || view == P08Evening9) && !courseNum) ||
+      (view === P11LibPrefer && !libraryDay) ||
+      (view === P115_libexam && !libraryTimeOnTest) ||
+      (view === P12Eating && !preferCanteen?.length) ||
+      (view === P13Spending && !maxAmount) ||
+      (view === P14Honor && !honor?.length && !scholarship?.length) ||
+      // (view === P16BusPrefer && !busCount) ||
+      (view === P17Volunteering && !volunteerCount) 
+    ) idx += step;
+    else break;
+  }
+  return idx;
+}
