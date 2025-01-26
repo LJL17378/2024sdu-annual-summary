@@ -62,12 +62,12 @@
     .image {
       position: absolute;
       bottom:0;
-      right: -15vw;
+      right: 0;
       opacity: 0;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       img {
-        width: 90vw;
+        width: 100vw;
         // height: 391px;
       }
       &.imgAppear {

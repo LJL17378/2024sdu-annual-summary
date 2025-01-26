@@ -63,8 +63,7 @@ const index = ref(1)
       left: 0;
       transition: all 1s ease-in-out;
       img {
-        padding-left: 10vw;
-        width: 90vw;
+        width: 100vw;
         // height: 391px;
       }
       &.imgAppear {
@@ -76,10 +75,10 @@ const index = ref(1)
     .image-others {
       position: absolute;
       top:0;
-      left: 20vw;
+      right: -112%;
       transition: all 1s ease-in-out;
       img {
-        width: 80vw;
+        width: 100vw;
         // height: 391px;
       }
       &.imgAppear {

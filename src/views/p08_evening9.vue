@@ -62,7 +62,8 @@ const index = ref(1)
   }
   .image-person {
       position: absolute;
-      top: -15vw;
+      bottom:-76%;
+      left: 0;
       transition: all 1s ease-in-out;
       img {
         width: 100vw;

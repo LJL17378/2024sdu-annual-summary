@@ -77,7 +77,7 @@
       right: -112%;
       transition: all 1s ease-in-out;
       img {
-        width: 80vw;
+        width: 100vw;
         // height: 391px;
       }
       &.imgAppear {
@@ -88,10 +88,11 @@
     }
     .image-fish {
       position: absolute;
-      left: 2vw;
+      bottom:0;
+      right: 112%;
       transition: all 1s ease-in-out;
       img {
-        width: 80vw;
+        width: 100vw;
         // height: 391px;
       }
       &.imgAppear {

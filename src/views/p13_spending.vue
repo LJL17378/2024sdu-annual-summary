@@ -56,14 +56,12 @@
       left: -100%;
       z-index: 1000;
       line-height: 1.8;
-      font-size: 18px;
       transition: all 1s ease-in-out;
       color:#7d0000;
       p.big{
-        font-size: 24px;
+        font-size: 40px;
       }
       span.bold{
-        font-size: 24px;
         color: #ab000e;
       }
       &.textAppear {
@@ -77,7 +75,7 @@
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       img {
-        width: 90vw;
+        width: 100vw;
         // height: 391px;
       }
       &.imgAppear {

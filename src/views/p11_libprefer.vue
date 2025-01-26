@@ -56,7 +56,8 @@
     }
     .image {
       position: absolute;
-      top: 0;
+      bottom:-32vh;
+      right: 150%;
       transition: all 1s ease-in-out;
       img {
         width: 100vw;
@@ -69,11 +70,12 @@
     }
     .image-birds {
       position: absolute;
-      top: 5vw;
+      bottom:-8vh;
+      right: 112%;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       img {
-        width: 90vw;
+        width: 100vw;
         // height: 391px;
       }
       &.imgAppear {

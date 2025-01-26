@@ -10,7 +10,7 @@ import P09LibStats from "@/views/p09_libstats.vue";
 import P10HotBook from "@/views/p10_hotbook.vue";
 import P11LibPrefer from "@/views/p11_libprefer.vue";
 import P115_libexam from "../../views/p11.5_libexam.vue";
-// import P12Eating from "@/views/p12_eating.vue";
+import P12Eating from "@/views/p12_eating.vue";
 import P13Spending from "@/views/p13_spending.vue";
 import P14Honor from "@/views/p14_honor.vue";
 import P15BusStats from "@/views/p15_busstats.vue";
@@ -32,7 +32,7 @@ export default [
   P10HotBook,
   P11LibPrefer,
   P115_libexam,
-  // P12Eating,
+  P12Eating,
   P13Spending,
   P14Honor,
   P15BusStats,

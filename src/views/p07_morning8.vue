@@ -18,6 +18,9 @@
     <!-- <div :class="['image-phone', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/m8-phone.png" alt="加载失败">
       </div> -->
+      <div :class="['image-phone', { imgAppear: !transitionalValue }]">
+        <img src="../assets/img/m8-phone.png" alt="加载失败">
+      </div>
       <div :class="['image-clouds', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/m8-cloud-small.png" alt="加载失败">
       </div>
@@ -83,7 +86,7 @@ const index = ref(1)
       right: -112%;
       transition: all 1s ease-in-out;
       img {
-        width: 90vw;
+        width: 100vw;
       }
       &.imgAppear {
         right: 0;
@@ -97,7 +100,7 @@ const index = ref(1)
       left: -112%;
       transition: all 1s ease-in-out;
       img {
-        width: 90vw;
+        width: 100vw;
       }
       &.imgAppear {
         left: 0;
@@ -177,9 +180,9 @@ const index = ref(1)
 
 .text {
       position: absolute;
-      top: 10vh;
+      top: 15vh;
       opacity: 0;
-      left: 2em;
+      left: 30vw;
       z-index: 1000;
       line-height: 1.7;
       font-size: 18px;
