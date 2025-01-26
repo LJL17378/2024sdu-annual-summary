@@ -1,110 +1,70 @@
 <template>
-  <div class="wishes" ref="backgroundRef">
-    <div v-if="userData.grade === 1">
-      <fade-transition>
-        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-          <p>Hi {{ userData.name }}!</p>
-          <p>欢迎来到SDU这个大家庭!</p>
-          <p>这一年</p>
-          <p>你离开父母</p>
-          <p>孤身一人</p>
-          <p>来到远地求学</p>
-          <p>在SDU, 与一个个陌生而热烈</p>
-          <p>的灵魂相遇</p>
-        </div>
-        <div v-else-if="index === 2" class="text fade">
-          <p>在这里</p>
-          <p>你会遇见足以深深铭记的良师</p>
-          <p>结交可以共度一生的益友</p>
-          <p>充实自己, 发展自己</p>
-          <p>从这里, 走向更好的远方</p>
-        </div>
-        <div v-else-if="index === 3" class="text fade">
-          <p>学无止境, 气有浩然</p>
-          <p>亲爱的小SDUer</p>
-          <p>这一切, 才刚刚开始</p>
-          <p>等待与你相逢</p>
-        </div>
-      </fade-transition>
-    </div>
-    <div v-else-if="userData.grade === 2">
-      <fade-transition>
-        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-          <p>Hi {{ userData.name }}!</p>
-          <p>经过一年的磨练</p>
-          <p>你已经不再是那个稚嫩的大一</p>
-          <p>新生了</p>
-          <p>恭喜你成为SDU的"老鸟"</p>
-        </div>
-        <div v-else-if="index === 2" class="text fade">
-          <p>大二的生活就像一盒黑巧</p>
-          <p>入口满嘴苦涩</p>
-          <p>却又从舌根泛出甜味</p>
-        </div>
-        <div v-else-if="index === 3" class="text fade">
-          <p>你已经逐渐适应了校园生活的节奏</p>
-          <p>开始掌握属于自己的学习方法和技巧</p>
-          <p>你在学术活动、社团活动、社会实践等方面都有了很大收获</p>
-        </div>
-        <div v-else-if="index === 4" class="text fade">
-          <p>愿你继续与SDU携手前行</p>
-          <p>勇敢地追逐梦想</p>
-          <p>让未来的每一天都充满希望和喜悦</p>
-        </div>
-      </fade-transition>
-    </div>
-    <div v-else-if="userData.grade === 3">
-      <fade-transition>
-        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-          <p>Hi {{ userData.name }}!</p>
-          <p>恭喜你已经晋升为学校的"中流砥柱"!</p>
-          <p>经过几年的磨练</p>
-          <p>你已经成为了SDU不可或缺的一部分</p>
-        </div>
-        <div v-else-if="index === 2" class="text fade">
-          <p>这场大学的马拉松</p>
-          <p>你已经跑过了大半路程</p>
-          <p>但仍然保持着昂扬的斗志和旺盛的精力</p>
-        </div>
-        <div v-else-if="index === 3" class="text fade">
-          <p>你是SDU大舞台上无可厚非的主角</p>
-          <p>是学术的佼佼者</p>
-          <p>是社团活动的积极分子</p>
-          <p>更是实践经验的领跑者</p>
-          <p>在各个方面都展现出了卓越的能力和领导力</p>
-        </div>
-        <div v-else-if="index === 4" class="text fade">
-          <p>在未来的日子里</p>
-          <p>愿你与SDU继续并肩前行</p>
-          <p>书写彼此的辉煌篇章!</p>
-        </div>
-      </fade-transition>
-    </div>
-    <div v-else-if="userData.grade === 4">
-      <fade-transition>
-        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
-          <p>Hi {{ userData.name }}!</p>
-          <p>不知不觉</p>
-          <p>你已与SDU相伴4个年头</p>
-        </div>
-        <div v-else-if="index === 2" class="text fade">
-          <p>很快</p>
-          <p>你将获得那本记录着你独特旅程的毕业证</p>
-          <p>愿你走完山水万程</p>
-          <p>仍与理想重逢!</p>
-          <p>祝你前程似锦, 不负韶华!</p>
-        </div>
-      </fade-transition>
-    </div>
-
-    <div :class="['image', { imgAppear: !transitionalValue }]">
-      <img ref="imgRef" src="@/assets/img/wishes.png" alt=".">
-    </div>
+  <div class="page">
+    <fade-transition>
+      <!-- <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
+        <p>你好，新同学！</p>
+        <p>欢迎来到sdu的大家庭！</p>
+        <p>初入大学，</p>
+        <p>这里的一切或许都显得新奇。</p>
+        <p>但不必踌躇不前，</p>
+        <p>我们会为你提供必要的帮助。</p>
+        <p>这里有公正的研学环境，</p>
+        <p>有热情的良师益友，</p>
+        <p>这里是你走向更远方的起点，</p>
+        <p>学无止境，气有浩然，</p>
+        <p>新一代正如冉冉升起的朝阳，</p>
+        <p>未来属于你们年轻人，</p>
+        <p>期待你的成长与进步！</p>
+      </div> -->
+      <!-- <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
+        <p>走过又一年大学时光，</p>
+        <p>你眼神更加坚毅。</p>
+        <p>求学路上总会有些许风霜，</p>
+        <p>可那不过是你生活的调味剂。</p>
+        <p>大学的旅程即将过半，</p>
+        <p>你或许已经意识到，</p>
+        <p>这几年精彩纷呈的经历，</p>
+        <p>将会是你人生中重要的宝藏。</p>
+        <p>请奋力向前奔跑，</p>
+        <p>在人生的旷野上追逐理想，</p>
+        <p>相信你会攀上人生的最高峰！</p>
+      </div> -->
+      <!-- <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
+        <p>时光荏苒，</p>
+        <p>回首光阴已逝。</p>
+        <p>美好的大学生活已经过半，</p>
+        <p>回味过去的种种，</p>
+        <p>是否有千百种滋味一齐涌上心头？</p>
+        <p>在过去的时间里，</p>
+        <p>你日日苦读，</p>
+        <p>熬过了岁月的风吹日晒，</p>
+        <p>终于小有所成。</p>
+        <p>看向一片光明的未来，</p>
+        <p>你应当为自己而骄傲。</p>
+        <p>全力以赴，不负韶华，</p>
+        <p>剩下的时光也要加油！</p>
+      </div> -->
+      <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]">
+        <p>大学生活的列车即将到站，</p>
+        <p>你即将迈出校园，踏入社会。</p>
+        <p>或许你已经做好下一步的安排，</p>
+        <p>或许你还在为今后的生活烦恼，</p>
+        <p>但请怀揣对未来的美好愿景，</p>
+        <p>相信我们最后总能如愿以偿。</p>
+        <p>无论过去是否还留有遗憾，</p>
+        <p>都不必再为此悲伤，</p>
+        <p>因为前路还长，</p>
+        <p>还有的是时间去闯荡。</p>
+        <p>学无止境，气有浩然，</p>
+        <p>祝愿你征程归来仍不忘初心，</p>
+        <p>用开阔的胸怀拥抱未来。</p>
+      </div>
+    </fade-transition>
   </div>
 </template>
 
 <script setup>
-import { computed, inject, onMounted, ref } from 'vue'
+import { computed, inject, watch, ref } from 'vue'
 import { usePosition } from '@/assets/js/utils.js'
 import FadeTransition from '@/components/fade-transition.vue'
 import userData from '@/assets/js/request.js'
@@ -112,86 +72,36 @@ import userData from '@/assets/js/request.js'
 const transitional = inject('transitional')
 const transitionalValue = computed(() => transitional.value)
 
-
-
-const { start, end } = usePosition()
-const nextPage = inject('nextPageFunc')
-const setSubTransitional = inject('setSubTransitional')
-
-const imgRef = ref()
-const backgroundRef = ref()
-
 const index = ref(1)
-let maxIndex = 1;
-(async () => {
-  switch (userData.value.grade) {
-    case 1: maxIndex = 3; break;
-    case 2: maxIndex = 4; break;
-    case 3: maxIndex = 4; break;
-    case 4: maxIndex = 2; break;
-  }
-})()
-onMounted(async () => {
-  if (userData.value.grade === 4) {
-    backgroundRef.value.style.backgroundImage = 'linear-gradient(rgba(250, 242, 179, 1), rgba(249, 216, 131, 1))'
-    imgRef.value.src = (await import('@/assets/img/wishes1.png')).default
-  }
-})
-
-// 一进页面的时候设置为true, 表示子页面内还有翻页动画要进行, 防止滑动时整个页面翻页
-setSubTransitional(true)
-const subNextPage = () => {
-  // 只有当滑动距离超过屏幕高度的 20% 时才翻页
-  if (!transitional.value && start.value.y - end.value.y > window.innerHeight * 0.2) {
-    if (index.value >= maxIndex) {
-      // 子页面内翻页动画结束, 可以进行主页面翻页
-      setSubTransitional(false)
-      // 因为keep-alive的原因, 为防止被切出去的页面继续监听翻页动作, 需要手动移除事件监听
-      document.removeEventListener('touchend', subNextPage)
-      nextPage()
-      return
-    }
-    console.log('页面内翻页')
-    index.value++
-  }
-}
-document.addEventListener('touchend', subNextPage)
 </script>
 
 <style scoped lang="scss">
-.wishes {
+.page {
   width: 100%;
-  height: 100%;
-  background-image: linear-gradient(rgba(255, 216, 240, 1), rgba(247, 153, 149, 1));
-  position: relative;
-  .text {
-    position: absolute;
-    // max-width: 355px;
-    top: 96px;
-    left: -100%;
-    line-height: 2.5;
-    transition: all 1s ease-in-out;
-    &.textAppear {
-      left: 10vw;
-    }
-  }
-  .fade {
-    position: absolute;
-    left: 10vw;
-  }
-  .image {
-    position: absolute;
-    bottom: -8px;
-    right: -100%;
-    transition: all 1s ease-in-out;
-    img {
-      width: 270px;
-      height: 389px;
-      filter: drop-shadow(10px 10px 25px rgba(0, 0, 0, 0.25));
-    }
-    &.imgAppear {
-      right: 0;
-    }
-  }
+    height: 100%;
+    margin:0px;
+    background: url("../assets/img/summary-bg.png") no-repeat;
+    background-size:100% 100%;
+    background-attachment:fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.text {
+      opacity: 0;
+      z-index: 1000;
+      text-align: center;
+      line-height: 1.4;
+      transition: all 1s ease-in-out;
+      transition-delay: 1s;
+      color:#034362;
+      &.textAppear {
+        opacity: 1;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+    }
 </style>

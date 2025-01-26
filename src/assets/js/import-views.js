@@ -18,7 +18,7 @@ import P15BusStats from "@/views/p15_busstats.vue";
 // import P16BusPrefer from "@/views/p16_busprefer.vue";
 import P17Volunteering from "@/views/p17_volunteering.vue";
 import P18Working from "@/views/p18_working.vue";
-// import Summary from "@/views/summary.vue";
+import Summary from "@/views/summary.vue";
 
 export default [
   Login,
@@ -41,5 +41,5 @@ export default [
   // P16BusPrefer,
   P17Volunteering,
   P18Working,
-  // Summary,
+  Summary,
 ];
