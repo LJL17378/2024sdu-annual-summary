@@ -2,7 +2,7 @@
   <div class="hometown" ref="backgroundRef">
     <div>
       <fade-transition>
-        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]" style="top: 20vh; line-height: 2;">
+        <div v-if="index === 1" :class="['text', { textAppear: !transitionalValue }]" style="top: 15vh; line-height: 2;">
           <p><b style="margin-left: 0; font-size: 22px;">{{ userData.studentSource }}</b>是你的家乡，</p>
           <p>那是一个美丽的地方，</p>
           <p>你知道那里有什么特产吗？</p>
@@ -17,7 +17,6 @@
       </fade-transition>
     </div>
 
-
     <div :class="['image', { imgAppear: index == 2 }]">
       <img src="../assets/img/hometown-cloud-22.png" alt=".">
     </div>
@@ -25,7 +24,7 @@
       <img src="../assets/img/hometown-cloud-11.png" alt=".">
     </div>
 
-    <div style="width: 91vw;position: absolute" :class="['earth', { earth1: index == 1, earth2: index == 2 }]">
+    <div style="width: 75vw;position: absolute" :class="['earth', { earth1: index == 1, earth2: index == 2 }]">
       <img style="width: 100%;" src="../assets/img/hometown-earth.png" alt=".">
     </div>
 
@@ -98,7 +97,7 @@ document.addEventListener('touchend', subNextPage)
   .text {
     transition: all 1s ease-in-out;
     color: #005fb3;
-    left: 10vw;
+    left: 2em;
     opacity: 0;
   }
 
@@ -149,13 +148,13 @@ document.addEventListener('touchend', subNextPage)
   }
 
   .earth1 {
-    bottom: 21.7vw;
-    left: -6vw;
+    bottom: 30vw;
+    left: -5vw;
   }
 
   .earth2 {
     bottom: 106vw;
-    left: 15vw;
+    left: 25vw;
   }
 
   @keyframes rotate {

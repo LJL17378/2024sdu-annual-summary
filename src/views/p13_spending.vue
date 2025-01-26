@@ -1,5 +1,6 @@
 <template>
     <div class="consume">
+      <div style="width: 100%; height: 100%; background-color:  #cbcaca60;"></div>
       <div :class="['text', { textAppear: !transitionalValue }]">
         <p class="big">过去一年</p>
         <p style="margin-top: 20px;">你的校园卡消费记录</p>
@@ -9,9 +10,9 @@
         <p style="margin-top: 20px;">无论是晨光初露还是星光闪烁，</p>
         <p style="margin-left: 20vw;">我们的食堂始终为你守候。</p>
         <p style="margin-top: 20px;">你最常去的食堂是</p>
-        <p style="margin-left: 10vw;"><span class="bold">{{ preferCanteen[0] || preferCanteen }}</span></p>
-        <p style="margin-left: 8vw;">你的足迹最频繁出现在这里，</p>
-        <p style="margin-left: 15vw;">它的味道一定最合你的心意。</p>
+        <p style="margin-left: 12vw;"><span class="bold">{{ preferCanteen[0] || preferCanteen }}</span></p>
+        <p style="margin-left: 15vw;">你的足迹最频繁出现在这里，</p>
+        <p style="margin-left: 25vw;">它的味道一定最合你的心意。</p>
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/consume-clock.png" alt="加载失败">
@@ -55,12 +56,14 @@
       left: -100%;
       z-index: 1000;
       line-height: 1.8;
+      font-size: 18px;
       transition: all 1s ease-in-out;
       color:#7d0000;
       p.big{
-        font-size: 26px;
+        font-size: 24px;
       }
       span.bold{
+        font-size: 24px;
         color: #ab000e;
       }
       &.textAppear {
@@ -74,7 +77,7 @@
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       img {
-        width: 100vw;
+        width: 90vw;
         // height: 391px;
       }
       &.imgAppear {

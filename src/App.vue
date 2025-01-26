@@ -14,10 +14,10 @@
       <!-- 如果在第一页或最后一页，则不显示下箭头 -->
       <downArrowImg
         class="down-arrow"
+        @click="next"
         v-if="
           currentIndex !== 0 &&
-          currentIndex !== views.length - 1 &&
-          currentIndex !== views.length - 2
+          currentIndex !== views.length - 1 
         "
       />
     </div>
@@ -34,11 +34,9 @@
 </template>
 
 <script setup>
-import { onMounted, provide, ref, computed } from 'vue';
+import { provide, ref, computed } from 'vue';
 import { usePosition } from '@/assets/js/utils.js';
 import views from '@/assets/js/import-views.js';
-import shareImg from './assets/icons/share.vue';
-import returnImg from './assets/icons/return.vue';
 import music from './assets/icons/music.vue';
 import noMusic from './assets/icons/no_music.vue';
 import downArrowImg from './assets/icons/down_arrow.vue';
@@ -46,7 +44,6 @@ import userData from '@/assets/js/request.js';
 import audio from '@/assets/audio/bgm.mp3';
 
 console.log(userData.value);
-
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
@@ -210,7 +207,7 @@ const transitionStyle = ref('straight-translate-Y');
       left: 50%;
       transform: translate(-50%, 0);
       font-size: 10px;
-      color: #766a6a;
+      color: #717070;
       line-height: 1.1;
     }
     .down-arrow {

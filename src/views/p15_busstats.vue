@@ -74,21 +74,18 @@ import Flower from '../components/flower.vue';
     background-attachment:fixed;
     .text {
       position: absolute;
-      top: 8vh;
+      top: 7vh;
       left: 8vw;
-      font-size: 25px;
       opacity: 0;
       z-index: 1000;
       line-height: 1.5;
       transition: all 1s ease-in-out;
       transition-delay: 1s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#a8c6ef;
-        font-weight: 700;
-      }
+      text-shadow: black 1px 1px 2px;
+      color:#a8c6ef;
+
       p.big{
-        font-size: 40px;
+        font-size: 26px;
       }
       span.bold{
         display: inline-block;

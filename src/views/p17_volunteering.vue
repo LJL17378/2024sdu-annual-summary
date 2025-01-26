@@ -2,8 +2,8 @@
     <div class="volunteering">
       <div :class="['text', { textAppear: !transitionalValue }]">
         <p>今年，</p>
-        <p>你参加了<span class="bold">x</span>次志愿活动，</p>
-        <p>贡献了<span class="bold">x</span>小时时长，</p>
+        <p>你参加了<span class="bold">{{ userData.volunteerCount }}</span>次志愿活动，</p>
+        <p>贡献了<span class="bold">{{ userData.volunteerDuration }}</span>小时时长，</p>
         <p>成为了一名优秀的志愿者！</p>
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
@@ -17,6 +17,7 @@
   
   <script setup>
   import { computed, inject, watch, ref } from 'vue'
+import userData from '../assets/js/request';
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
@@ -42,22 +43,14 @@
       z-index: 1000;
       line-height: 2;
       transition: all 1s ease-in-out;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:white;
-      }
+      color: white;
+      text-shadow: #eb4f4f 1px 1px 1px;
       span.bold{
-        display: inline-block;
-        font-size: 24px;
-        //加粗
-        font-weight: 700;
-        color: #ee6262;
+        color: #eb4f4f;
+        text-shadow: none;
       }
       &.textAppear {
         left: 8vw;
-      }
-      p {
-        margin: 0.5rem 0;
       }
     }
     .image {
@@ -67,7 +60,7 @@
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       img {
-        width: 100vw;
+        width: 90vw;
         // height: 391px;
       }
       &.imgAppear {

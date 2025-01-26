@@ -40,7 +40,7 @@
       left: -100%;
       z-index: 1000;
       transition: all 1s ease-in-out;
-      color:#b57a02;
+      color:#a06b02;
       &.textAppear {
         left: 8vw;
       }
@@ -62,12 +62,12 @@
     .image {
       position: absolute;
       bottom:0;
-      right: 0;
+      right: -15vw;
       opacity: 0;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
       img {
-        width: 100vw;
+        width: 90vw;
         // height: 391px;
       }
       &.imgAppear {

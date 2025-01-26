@@ -1,7 +1,7 @@
 <template>
     <div class="working">
       <div :class="['text', { textAppear: !transitionalValue }]">
-        <p style="font-size: 36px;">今年，</p>
+        <p style="font-size: 26px;">今年，</p>
         <p>共有<span class="bold">115232</span>人次参与勤工助学，</p>
         <p>收获报酬共计<span class="bold">2299.25</span>万元。</p>
         <p>在缓解生活压力的同时丰富了实践经验</p>
@@ -63,26 +63,17 @@
       left: -100%;
       font-size: 20px;
       z-index: 1000;
-      line-height: 2;
+      line-height: 2.2;
       transition: all 1s ease-in-out;
       transition-delay: 0.5s;
-      p{
-        font-family: 'Microsoft YaHei UI';
-        color:#064ea7;                        
-        font-weight: 700;
-      }
+      color: white;
+      text-shadow: #053571 1px 1px 2px;
       span.bold{
-        display: inline-block;
-        font-size: 26px;
-        //加粗
-        font-weight: 700;
         color: #053571;
+        text-shadow: none;
       }
       &.textAppear {
         left: 8vw;
-      }
-      p {
-        margin: 0.5rem 0;
       }
     }
     .image {
@@ -105,10 +96,10 @@
     .image-fish {
       position: absolute;
       bottom:0;
-      right: 112%;
+      left:0;
       transition: all 1s ease-in-out;
       img {
-        width: 100vw;
+        width: 80vw;
         // height: 391px;
       }
       &.imgAppear {

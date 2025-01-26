@@ -1,5 +1,4 @@
 import Login from "@/views/login.vue";
-import P00Welcome from "@/views/p00_welcome.vue";
 import P01Age from "@/views/p01_age.vue";
 import P02Birthday from "@/views/p02_birthday.vue";
 import P04Hometown from "@/views/p04_hometown.vue";
@@ -22,7 +21,6 @@ import Summary from "@/views/summary.vue";
 
 export default [
   Login,
-  // P00Welcome,
   P01Age,
   P02Birthday,
   P04Hometown,
