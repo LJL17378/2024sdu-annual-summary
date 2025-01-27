@@ -6,7 +6,7 @@
         <p>阳光洒进<span class="bold">{{ userData.classroom }}</span>的窗，</p>
         <p>你最常来这儿上课。</p>
         <p>你在知识的沃土里奋力耕耘，</p>
-        <p>未来一定会结出硕果累累。</p>
+        <p>未来一定会结出累累硕果。</p>
       </div>
     </fade-transition>
     <div :class="['image', { imgAppear: !transitionalValue }]">
