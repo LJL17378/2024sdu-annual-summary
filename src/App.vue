@@ -17,6 +17,8 @@
       <p class="text" v-else-if="currentIndex === 18">
         * 数据来自济南、青岛、威海党委学生工作部
       </p>
+      <p class="text" v-else-if="currentIndex === 19 || currentIndex === 20 || currentIndex === 21">
+      </p>
       <p class="text" v-else-if="![0, views.length - 1].includes(currentIndex)" >* 数据仅来源于济南校本部本科生</p>
       <!-- 如果在第一页或最后一页，则不显示下箭头 -->
       <downArrowImg
@@ -85,6 +87,7 @@ const imageUrls = [
   '/src/assets/img/working-bg.png',
   '/src/assets/img/summary-bg.png',
   '/src/assets/img/bus-bg.png',
+  '/src/assets/img/end-bg.png',
 ];
 preloadImages(imageUrls);
 

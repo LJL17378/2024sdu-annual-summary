@@ -66,6 +66,10 @@
 <script setup>
 import FadeTransition from '@/components/fade-transition.vue'
 import userData from '@/assets/js/request.js'
+import { inject,computed } from 'vue';
+const transitional = inject('transitional')
+const transitionalValue = computed(() => transitional.value)
+
 
 const { grade, major } = userData.value;
 const is5 = major.includes("5") || major.includes("五年")
@@ -91,7 +95,6 @@ const is5 = major.includes("5") || major.includes("五年")
       text-align: center;
       line-height: 1.4;
       transition: all 1s ease-in-out;
-      transition-delay: 1s;
       color:#034362;
       &.textAppear {
         opacity: 1;

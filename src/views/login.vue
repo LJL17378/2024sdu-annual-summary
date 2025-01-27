@@ -6,6 +6,12 @@
         <div style="margin-top: 20px; margin-bottom: 1em;">统一认证登录</div>
         <input type="text" v-model="studentId" placeholder="学号" />
         <input type="password" v-model="password" placeholder="密码" />
+
+        <div v-if="isLoading" class="progress-container">
+          <div class="progress-bar" :style="{ width: `${progress}%` }"></div>
+          <div class="progress-text">{{ progressText }}</div>
+        </div>
+
         <button @click="login" :class="{loading: isLoading}">{{ isLoading ? '登录中' : '登录' }}</button>
       </div>
     </div>
@@ -111,21 +117,55 @@ const isLoading = ref(false);
 const studentId = ref('');
 const password = ref('');
 
+const progress = ref(0)
+const progressText = ref('')
+const progressInterval = ref(null)
+
+const startProgress = () => {
+  progress.value = 0
+  progressText.value = '正在验证账号信息...'
+  
+  progressInterval.value = setInterval(() => {
+    if (progress.value < 90) {
+      progress.value += Math.random() * 15
+      
+      if (progress.value > 30 && progress.value < 60) {
+        progressText.value = '正在获取用户数据...'
+      } else if (progress.value >= 60) {
+        progressText.value = '即将完成...'
+      }
+    }
+  }, 500)
+}
+
+const stopProgress = () => {
+  if (progressInterval.value) {
+    clearInterval(progressInterval.value)
+    progressInterval.value = null
+  }
+  progress.value = 100
+  progressText.value = '登录成功！'
+}
+
 const login = async () => {
-  // console.log('login');
-  // console.log('studentId:', studentId.value);
-  // console.log('password:', password.value);
-  // 捕获错误
   if (isLoading.value) return;
   try {
     isLoading.value = true;
+    startProgress();
+    
     await requestUserData(studentId.value, password.value);
     localStorage.setItem('data', JSON.stringify(userData.value));
-    isLoading.value = false;
-    showPopup.value = false;
-    next();
+    
+    stopProgress();
+    setTimeout(() => {
+      isLoading.value = false;
+      showPopup.value = false;
+      next();
+    }, 500);
   } catch (error) {
     console.log('error:', error);
+    clearInterval(progressInterval.value);
+    progress.value = 0;
     isLoading.value = false;
     alert(error.message);
   }
@@ -203,6 +243,24 @@ const showAgreementText = ref(false)
   }
 }
 .index {
+  .progress-container {
+  width: 240px;
+  margin: 15px 0;
+  
+  .progress-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #8b5cf6, #6366f1);
+    border-radius: 2px;
+    transition: width 0.2s ease;
+  }
+  
+  .progress-text {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+  }
+}
   .text-ta{
     width: 100%;
     position: absolute;
@@ -242,7 +300,7 @@ const showAgreementText = ref(false)
     background-color: #f7f7f7c4;
     box-shadow: 0px 4px 4px rgba(68, 68, 68, 0.25);
     width: 312px;
-    height: 256px;
+    height: 312px;
     border-radius: 24px;
     z-index: 1000;
     transform: translateX(-50%);
@@ -273,7 +331,7 @@ const showAgreementText = ref(false)
     }
     .popup {
       padding: 20px;
-      height: max-content;
+      height: auto;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
