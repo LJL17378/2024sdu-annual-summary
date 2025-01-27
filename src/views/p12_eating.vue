@@ -6,7 +6,10 @@
         <p style="text-align: right;">你在校园里的每一次用餐</p>
         <p style="margin-top: 4vw;margin-left: 20px;">你的年度最高单笔消费记录是</p>
         <p style="margin-left: 30vw;"><span class="bold">{{ maxAmount }}元</span></p>
-        <p style="margin-top: 20px;">这笔消费发生在<span class="bold">{{ maxAmountCanteen }}</span></p>
+        <p style="margin-top: 20px;">这笔消费发生在</p>
+        <p><span class="bold">{{ timestr }}</span></p>
+        <p style="margin-left: 5vw;">地点在</p>
+        <p style="margin-left: 15vw;"><span class="bold">{{ maxAmountCanteen }}</span></p>
         <p style="margin-left: 8vw;">那可能是你为了</p>
         <p style="margin-left: 15vw;">庆祝某个特别的日子</p>
         <p style="margin-left: 8vw;">而犒劳自己的一顿大餐。</p>
@@ -28,14 +31,35 @@
   import beginImg from '../assets/svg/begin_svg.vue'
   import userData from '../assets/js/request';
 
-  const {maxAmount, maxAmountCanteen} = userData.value;
-  
+  const {maxAmount, maxAmountCanteen,maxAmountTime} = userData.value;
+
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)
   watch(transitionalValue, () => {
     console.log('开始页面内动画')
   })
-  // const username = ref('xx');
+  function formatDatetime(inputDatetime) {
+    const dt = new Date(inputDatetime);
+    let hour = dt.getHours();
+    const minute = dt.getMinutes();
+    let period = '';
+    if (hour < 12) {
+        period = '上午';
+    } else if (hour === 12) {
+        period = '中午';
+    } else if (hour < 18) {
+        period = '下午';
+    } else {
+        period = '晚上';
+    }
+    if (hour > 12) {
+        hour -= 12;
+    }
+    const minuteStr = minute < 10 ? '0' + minute : minute;
+    const timePart = `${period}${hour}:${minuteStr}`;
+    return `${timePart}`;
+}
+    let timestr = formatDatetime(maxAmountTime) 
   </script>
   
   <style scoped lang="scss">

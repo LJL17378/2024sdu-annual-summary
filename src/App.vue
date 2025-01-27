@@ -11,8 +11,11 @@
       <p class="text" v-if="currentIndex <= 7 && currentIndex >= 5">
         * 数据取自于学生个人课表
       </p>
-      <p class="text" v-else-if="currentIndex === 17">
-        * 数据来自一校三地
+      <p class="text" v-else-if="currentIndex >= 8 && currentIndex <= 11">
+        * 数据来自济南、青岛、威海图书馆
+      </p>
+      <p class="text" v-else-if="currentIndex === 18">
+        * 数据来自济南、青岛、威海党委学生工作部
       </p>
       <p class="text" v-else-if="![0, views.length - 1].includes(currentIndex)" >*数据仅来源于济南校本部本科生</p>
       <!-- 如果在第一页或最后一页，则不显示下箭头 -->
@@ -49,6 +52,41 @@ import audio from '@/assets/audio/bgm.mp3';
 
 const data = localStorage.getItem('data');
 if (data) userData.value = JSON.parse(data);
+
+function preloadImages(imageUrls) {
+  imageUrls.forEach(url => {
+    const img = new Image();
+    img.onload = () => {
+      console.log(`${url} is loaded.`);
+    };
+    img.onerror = () => {
+      console.log(`Failed to load ${url}.`);
+    };
+    img.src = url;
+    console.log(img)
+  });
+}
+
+const imageUrls = [
+  '/src/assets/img/e9-bg.png',
+  '/src/assets/img/age-bg.png',
+  '/src/assets/img/hometown-bg.png',
+  '/src/assets/img/classroom-bg.png',
+  '/src/assets/img/course-bg.png',
+  '/src/assets/img/m8-bg.png',
+  '/src/assets/img/lib-bg.png',
+  '/src/assets/img/libexam-bg.png',
+  '/src/assets/img/libstats-bg.png',
+  '/src/assets/img/eating-bg.png',
+  '/src/assets/img/consume-bg.png',
+  '/src/assets/img/honor-bg.png',
+  '/src/assets/img/busprefer-bg.png',
+  '/src/assets/img/volunteering-bg.png',
+  '/src/assets/img/working-bg.png',
+  '/src/assets/img/summary-bg.png',
+  '/src/assets/img/bus-bg.png',
+];
+preloadImages(imageUrls);
 
 function clearCache() {
   if (!confirm("该操作将清除缓存数据，您可以再次登录获取数据。是否继续？")) return;
@@ -98,6 +136,8 @@ const next = () => {
   currentIndex.value = nextIndex(currentIndex.value + 1);
 }
 provide('next', next);
+provide('currentIndex', currentIndex);
+
 
 // 音乐，单例模式
 const audioEl = new Audio(audio);
@@ -225,10 +265,9 @@ const transitionStyle = ref('straight-translate-Y');
     height: 64px;
     z-index: 10085;
     .text {
-      position: absolute;
+      width: 100vw;
       bottom: 5vh;
-      left: 50%;
-      transform: translate(-50%, 0);
+      text-align: center;
       font-size: 10px;
       color: #717070;
       line-height: 1.1;

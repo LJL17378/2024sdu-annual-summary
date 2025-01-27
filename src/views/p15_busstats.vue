@@ -11,7 +11,7 @@
         <p>跨越校区的每一次</p>
         <p>都是对学术探索的执着追求。</p> -->
       </div>
-      <div :class="['image-light', { LightImgAppear: !transitionalValue }]">
+      <div :class="['image-light', { LightImgAppear: !transitionalValue || currentIndex === 16 }]">
         <img src="../assets/img/bus-light.png" alt="加载失败">
       </div>
       <div class="image-hillside imgAppear">
@@ -20,29 +20,29 @@
       <div class="image-hillside imgAppear">
         <img src="../assets/img/bus-cloud.png" alt="加载失败">
       </div>
-      <div :class="['image-bus', { imgAppear: !transitionalValue }]">
+      <div :class="['image-bus', { imgAppear: !transitionalValue || currentIndex === 16}]">
         <img src="../assets/img/bus-bus.png" alt="加载失败">
       </div>
-      <flower type="purple-light" scale="0.1" x1="71" y1="63" x2="60" :seen="!transitionalValue" degree="10"></flower>
-      <flower type="pink-normal" scale="0.15" x1="71" y1="71" x2="90" :seen="!transitionalValue" degree="54"></flower>
-      <flower type="purple-dark" scale="0.1" x1="88" y1="66" x2="60" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="pink-normal" scale="0.17" x1="85" y1="66" x2="102" :seen="!transitionalValue" degree="54"></flower>
-      <flower type="pink-normal" scale="0.17" x1="99.5" y1="75" x2="102" :seen="!transitionalValue" degree="10"></flower>
-      <flower type="pink-light" scale="0.25" x1="97.5" y1="72" x2="150" :seen="!transitionalValue" degree="10"></flower>
-      <flower type="purple-light" scale="0.17" x1="80" y1="78" x2="102" :seen="!transitionalValue" degree="10"></flower>
-      <flower type="purple-light" scale="0.17" x1="87" y1="103" x2="102" :seen="!transitionalValue" degree="10"></flower>
-      <flower type="pink-normal" scale="0.33" x1="89" y1="95" x2="198" :seen="!transitionalValue" degree="195"></flower>
-      <flower type="purple-normal" scale="0.35" x1="91" y1="145" x2="210" :seen="!transitionalValue" degree="10"></flower>
-      <flower type="pink-dark" scale="0.28" x1="94" y1="165" x2="168" :seen="!transitionalValue" degree="30"></flower>
-      <flower type="pink-normal" scale="0.55" x1="85" y1="154" x2="330" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="pink-normal" scale="0.42" x1="96" y1="194" x2="252" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="purple-light" scale="0.2" x1="90" y1="206" x2="120" :seen="!transitionalValue" degree="30"></flower>
-      <flower type="purple-dark" scale="0.14" x1="13" y1="205" x2="84" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="pink-normal" scale="0.42" x1="20" y1="199" x2="252" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="pink-light" scale="0.38" x1="80" y1="182" x2="228" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="purple-light" scale="0.37" x1="47" y1="150" x2="222" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="pink-dark" scale="0.35" x1="35" y1="157" x2="210" :seen="!transitionalValue" degree="0"></flower>
-      <flower type="purple-dark" scale="0.16" x1="70" y1="130" x2="98" :seen="!transitionalValue" degree="0"></flower>
+      <flower type="purple-light" scale="0.1" x1="71" y1="63" x2="60" :seen="!transitionalValue || currentIndex === 16 " degree="10"></flower>
+      <flower type="pink-normal" scale="0.15" x1="71" y1="71" x2="90" :seen="!transitionalValue || currentIndex === 16 " degree="54"></flower>
+      <flower type="purple-dark" scale="0.1" x1="88" y1="66" x2="60" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="pink-normal" scale="0.17" x1="85" y1="66" x2="102" :seen="!transitionalValue || currentIndex === 16 " degree="54"></flower>
+      <flower type="pink-normal" scale="0.17" x1="99.5" y1="75" x2="102" :seen="!transitionalValue || currentIndex === 16 " degree="10"></flower>
+      <flower type="pink-light" scale="0.25" x1="97.5" y1="72" x2="150" :seen="!transitionalValue || currentIndex === 16 " degree="10"></flower>
+      <flower type="purple-light" scale="0.17" x1="80" y1="78" x2="102" :seen="!transitionalValue || currentIndex === 16 " degree="10"></flower>
+      <flower type="purple-light" scale="0.17" x1="87" y1="103" x2="102" :seen="!transitionalValue || currentIndex === 16 " degree="10"></flower>
+      <flower type="pink-normal" scale="0.33" x1="89" y1="95" x2="198" :seen="!transitionalValue || currentIndex === 16 " degree="195"></flower>
+      <flower type="purple-normal" scale="0.35" x1="91" y1="145" x2="210" :seen="!transitionalValue || currentIndex === 16 " degree="10"></flower>
+      <flower type="pink-dark" scale="0.28" x1="94" y1="165" x2="168" :seen="!transitionalValue || currentIndex === 16 " degree="30"></flower>
+      <flower type="pink-normal" scale="0.55" x1="85" y1="154" x2="330" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="pink-normal" scale="0.42" x1="96" y1="194" x2="252" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="purple-light" scale="0.2" x1="90" y1="206" x2="120" :seen="!transitionalValue || currentIndex === 16 " degree="30"></flower>
+      <flower type="purple-dark" scale="0.14" x1="13" y1="205" x2="84" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="pink-normal" scale="0.42" x1="20" y1="199" x2="252" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="pink-light" scale="0.38" x1="80" y1="182" x2="228" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="purple-light" scale="0.37" x1="47" y1="150" x2="222" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="pink-dark" scale="0.35" x1="35" y1="157" x2="210" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
+      <flower type="purple-dark" scale="0.16" x1="70" y1="130" x2="98" :seen="!transitionalValue || currentIndex === 16 " degree="0"></flower>
       <div class="image-bus imgAppear"> 
         <img src="../assets/img/bus-filter.png" alt="加载失败">
       </div>
@@ -62,6 +62,7 @@ import userData from '../assets/js/request';
   const {busCount, busNumber} = userData.value;
   
   const transitional = inject('transitional')
+  const currentIndex = inject('currentIndex')
   const transitionalValue = computed(() => transitional.value)
   watch(transitionalValue, () => {
     console.log('开始页面内动画')
@@ -88,7 +89,6 @@ import userData from '../assets/js/request';
       transition: all 1s ease-in-out;
       transition-delay: 1s;
       color:#a8c6ef;
-      font-weight: 700;
       p.big{
         font-size: 26px;
       }

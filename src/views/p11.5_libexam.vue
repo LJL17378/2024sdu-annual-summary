@@ -2,7 +2,7 @@
     <div class="libprefer">
       <div :class="['text', { textAppear: !transitionalValue }]">
         <p>在忙碌的期末周，</p>
-        <p>图书馆的大门被推开<b>{{ userData.libraryTimeOnTest }}</b>次，</p>
+        <p>图书馆的大门被推开<b>249502</b>次，</p>
         <p>安静的图书馆里</p><p>坐满了一排排用功的身影，</p>
         <p>其中有你的身影吗？</p>
       </div>
@@ -14,7 +14,6 @@
   
   <script setup>
   import { computed, inject, watch, ref } from 'vue'
-  import userData from '../assets/js/request.js'
   
   const transitional = inject('transitional')
   const transitionalValue = computed(() => transitional.value)

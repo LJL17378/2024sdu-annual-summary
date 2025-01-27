@@ -15,7 +15,7 @@
         <p>跨越校区的每一次</p>
         <p>都是对学术探索的执着追求。</p> -->
       </div>
-      <div :class="['image-ballon', { imgAppear: !transitionalValue }]">
+      <div :class="['image-ballon', { imgAppear: !transitionalValue ||currentIndex === 17 }]">
         <img src="../assets/img/busprefer-ballon.png" alt="加载失败">
       </div>
       <div class="image-filter imgAppear"> 
@@ -35,6 +35,7 @@
   const {busCount, busNumber} = userData.value;
   
   const transitional = inject('transitional')
+  const currentIndex = inject('currentIndex')
   const transitionalValue = computed(() => transitional.value)
   watch(transitionalValue, () => {
     console.log('开始页面内动画')
@@ -83,11 +84,11 @@
       transition: all 1s ease-in-out;
       transition-delay: 1s;
       color:#1a428a;
-        font-weight: 700;
       p.big{
         font-size: 26px;
       }
       span.bold{
+        display: inline-block;
         font-size: 26px;
         //加粗
         font-weight: 700;
