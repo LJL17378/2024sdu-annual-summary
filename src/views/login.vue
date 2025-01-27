@@ -129,7 +129,6 @@ const login = async () => {
     isLoading.value = false;
     alert(error.message);
   }
-  showPopup.value = true;
 };
 
 const showAgreementText = ref(false)

@@ -9,7 +9,7 @@
         <div v-if="workStudy">
           <p>其中，</p>
           <p>你在<span class="bold">{{ workStudy }}</span>工作过</p>
-         <p>用汗水换取丰厚的劳动果实。</p>
+         <p>用汗水换取丰厚的劳动成果。</p>
         </div>  
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">

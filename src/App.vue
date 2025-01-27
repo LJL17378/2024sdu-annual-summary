@@ -7,7 +7,7 @@
       <!-- <shareImg class="share-icon" /> -->
     </div>
     <div class="footer">
-      <p class="text" v-if="currentIndex === 0 && userData" @click="clearCache">*清除缓存数据</p>
+      <p class="text" v-if="currentIndex === 0 && userData" @click="clearCache">> 清除缓存数据</p>
       <p class="text" v-if="currentIndex <= 7 && currentIndex >= 5">
         * 数据取自于学生个人课表
       </p>
@@ -17,7 +17,7 @@
       <p class="text" v-else-if="currentIndex === 18">
         * 数据来自济南、青岛、威海党委学生工作部
       </p>
-      <p class="text" v-else-if="![0, views.length - 1].includes(currentIndex)" >*数据仅来源于济南校本部本科生</p>
+      <p class="text" v-else-if="![0, views.length - 1].includes(currentIndex)" >* 数据仅来源于济南校本部本科生</p>
       <!-- 如果在第一页或最后一页，则不显示下箭头 -->
       <downArrowImg
         class="down-arrow"
@@ -215,10 +215,7 @@ const nextPage = () => {
 
 const prevPage = () => {
   transitionStyle.value = 'straight-translate-Y-up'
-  if (views.length === currentIndex.value + 1 
-    || currentIndex.value === 0
-    || subTransitional.value
-  ) return;
+  if (currentIndex.value === 0 || subTransitional.value) return;
   currentIndex.value = nextIndex(currentIndex.value - 1, -1);
 }
 
@@ -269,7 +266,7 @@ const transitionStyle = ref('straight-translate-Y');
       bottom: 5vh;
       text-align: center;
       font-size: 10px;
-      color: #717070;
+      color: #9f9f9f;
       line-height: 1.1;
     }
     .down-arrow {

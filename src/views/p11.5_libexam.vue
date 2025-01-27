@@ -4,7 +4,7 @@
         <p>在忙碌的期末周，</p>
         <p>图书馆的大门被推开<b>249502</b>次，</p>
         <p>安静的图书馆里</p><p>坐满了一排排用功的身影，</p>
-        <p>其中有你的身影吗？</p>
+        <p>其中有属于你的吗？</p>
       </div>
       <div :class="['image', { imgAppear: !transitionalValue }]">
         <img src="../assets/img/libexam-book.png" alt="加载失败">
