@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div class="header">
+    <div class="header" v-show="showMusic">
       <!-- <returnImg class="return-icon" /> -->
       <music class="music-icon play" @click="stopMusic" v-if="isMusic" />
       <noMusic class="music-icon" @click="playMusic" v-else />
@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import { provide, ref, computed } from 'vue';
+import { provide, ref, computed, onMounted, watch } from 'vue';
 import { usePosition } from '@/assets/js/utils.js';
 import views, { nextIndex } from '@/assets/js/import-views.js';
 import music from './assets/icons/music.vue';
@@ -54,42 +54,6 @@ import audio from '@/assets/audio/bgm.mp3';
 
 const data = localStorage.getItem('data');
 if (data) userData.value = JSON.parse(data);
-
-function preloadImages(imageUrls) {
-  imageUrls.forEach(url => {
-    const img = new Image();
-    img.onload = () => {
-      console.log(`${url} is loaded.`);
-    };
-    img.onerror = () => {
-      console.log(`Failed to load ${url}.`);
-    };
-    img.src = url;
-    console.log(img)
-  });
-}
-
-const imageUrls = [
-  '/src/assets/img/e9-bg.png',
-  '/src/assets/img/age-bg.png',
-  '/src/assets/img/hometown-bg.png',
-  '/src/assets/img/classroom-bg.png',
-  '/src/assets/img/course-bg.png',
-  '/src/assets/img/m8-bg.png',
-  '/src/assets/img/lib-bg.png',
-  '/src/assets/img/libexam-bg.png',
-  '/src/assets/img/libstats-bg.png',
-  '/src/assets/img/eating-bg.png',
-  '/src/assets/img/consume-bg.png',
-  '/src/assets/img/honor-bg.png',
-  '/src/assets/img/busprefer-bg.png',
-  '/src/assets/img/volunteering-bg.png',
-  '/src/assets/img/working-bg.png',
-  '/src/assets/img/summary-bg.png',
-  '/src/assets/img/bus-bg.png',
-  '/src/assets/img/end-bg.png',
-];
-preloadImages(imageUrls);
 
 function clearCache() {
   if (!confirm("该操作将清除缓存数据，您可以再次登录获取数据。是否继续？")) return;
@@ -145,7 +109,8 @@ provide('currentIndex', currentIndex);
 // 音乐，单例模式
 const audioEl = new Audio(audio);
 audioEl.loop = true;
-audioEl.volume = 0.8;
+audioEl.volume = 0;
+
 // 应对Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first.
 // 定义事件处理函数
 const handleMusicEvent = () => {
@@ -157,13 +122,15 @@ const handleMusicEvent = () => {
 // 添加事件监听器
 document.addEventListener('music', handleMusicEvent);
 
-// 是否播放音乐
+const showMusic = ref(false);
 const isMusic = ref(false);
 // 一个播放音乐的函数
 const playMusic = () => {
-  isMusic.value = true;
+  if (isMusic.value) return;
   audioEl.volume = 0;
   audioEl.play();
+  isMusic.value = true;
+  
   // 添加淡入淡出效果
   const fade = setInterval(() => {
     if (audioEl.volume < 0.8) {
@@ -171,7 +138,7 @@ const playMusic = () => {
     } else {
       clearInterval(fade);
     }
-  }, 30);
+  }, 100);
   console.log('播放音乐');
 };
 // 一个停止音乐的函数
@@ -191,6 +158,12 @@ const stopMusic = () => {
   }, 50);
   console.log('停止音乐');
 };
+
+watch(currentIndex, (n, o) => {
+  showMusic.value = true;
+  if (o === 0 && n === 1) playMusic();
+  
+}, {once: true})
 
 //禁用滚轮事件
 document.addEventListener('mousewheel', (e) => e.preventDefault(), {

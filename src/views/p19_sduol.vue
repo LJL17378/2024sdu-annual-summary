@@ -1,7 +1,7 @@
 <template>
     <div class="page"
     @touchend="handleTouchEnd">
-      <img class="bg" src="../assets/img/sduol-bg.png" alt="">
+      <img class="bg" src="../assets/img/sduol-bg.jpg" alt="">
       <div class="transition-overlay">
         <img class="transition-image" src="../assets/img/转场.png" alt="">
       </div>

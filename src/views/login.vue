@@ -12,7 +12,7 @@
           <div class="progress-text">{{ progressText }}</div>
         </div>
 
-        <button @click="login" :class="{loading: isLoading}">{{ isLoading ? '登录中' : '登录' }}</button>
+        <button @click="login" v-show="!isLoading">登录</button>
       </div>
     </div>
 
@@ -24,8 +24,8 @@
 
     <!-- <indexTitle class="index-title" /> -->
     <!-- <indexImg class="index-img" /> -->
-    <img class="clock" style="position: absolute;width: 110vw;left: 20vw;top: -60vw;" src="../assets/img/welcome-clock.png" alt="">
-    <img class="index-img" src="../assets/img/welcome-sandglass.png" alt="加载失败" />
+    <img class="clock" style="position: absolute;width: 110vw;left: 20vw;top: -60vw;" src="../assets/img/a-welcome-clock.png" alt="">
+    <img class="index-img" src="../assets/img/a-welcome-sandglass.png" alt="加载失败" />
     <div class="text-ta" v-if="!showPopup">
       <p>一年时光轻轻划过，</p>
       <p>过去的一年满是美好的回忆，</p>
@@ -122,20 +122,20 @@ const progressText = ref('')
 const progressInterval = ref(null)
 
 const startProgress = () => {
-  progress.value = 0
-  progressText.value = '正在验证账号信息...'
+  progress.value = 1
+  progressText.value = '正在验证用户信息...'
   
   progressInterval.value = setInterval(() => {
-    if (progress.value < 90) {
-      progress.value += Math.random() * 15
+    if (progress.value < 95) {
+      progress.value += Math.random() * 5
       
-      if (progress.value > 30 && progress.value < 60) {
+      if (progress.value > 30 && progress.value < 80) {
         progressText.value = '正在获取用户数据...'
-      } else if (progress.value >= 60) {
+      } else if (progress.value >= 80) {
         progressText.value = '即将完成...'
       }
     }
-  }, 500)
+  }, (1 + Math.random()) * (progress.value > 50 ? 1500 : 800))
 }
 
 const stopProgress = () => {
@@ -144,7 +144,7 @@ const stopProgress = () => {
     progressInterval.value = null
   }
   progress.value = 100
-  progressText.value = '登录成功！'
+  progressText.value = '加载您的报告...'
 }
 
 const login = async () => {
@@ -274,7 +274,7 @@ const showAgreementText = ref(false)
   width: 100%;
     height: 100%;
     margin:0px;
-    background: url("../assets/img/welcome-bg.png") no-repeat;
+    background: url("../assets/img/a-welcome-bg.jpg") no-repeat;
     background-size:100% 100%;
     background-attachment:fixed;
     .clock{
