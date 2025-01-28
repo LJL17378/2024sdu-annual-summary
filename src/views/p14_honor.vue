@@ -6,7 +6,7 @@
           <p>你获得了</p>
           <p v-for="(item,index) in userData.scholarship" v-if="index < 2"><span class="bold" style="margin: 0;">{{ item }}</span>，</p>
           <p v-for="(item,index) in userData.honor" v-if="index < 2"><span class="bold" style="margin: 0;">{{ item }}</span>荣誉称号，</p>
-          <p>共计获得<span class="bold">{{ userData.scholarship.length + userData.honor.length }}</span>次荣誉，</p>
+          <p>共计获得<span class="bold">{{ userData.HonorAndScholarCount }}</span>次荣誉，</p>
           <p>快奖励自己一朵小红花！</p>
         </div>
       </fade-transition>
