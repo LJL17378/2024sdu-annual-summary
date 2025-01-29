@@ -2,7 +2,7 @@
     <div class="working">
       <div :class="['text', { textAppear: !transitionalValue }]">
         <p style="font-size: 26px;">今年，</p>
-        <p>共有<span class="bold">115232</span>人次参与勤工助学，</p>
+        <p>共有<span class="bold">34508</span>人次参与勤工助学，</p>
         <p>收获报酬共计<span class="bold">2299.25</span>万元。</p>
         <p>在缓解生活压力的同时丰富了实践经验</p>
         <p>提升了工作技能</p>
