@@ -102,8 +102,13 @@ const next = () => {
   transitionStyle.value = 'straight-translate-Y'
   currentIndex.value = nextIndex(currentIndex.value + 1);
 }
+const toError = () => {
+  console.log("22")
+  currentIndex.value = 22
+}
 provide('next', next);
 provide('currentIndex', currentIndex);
+provide('toError',toError)
 
 
 // 音乐，单例模式
@@ -185,13 +190,14 @@ const nextPage = () => {
   if (views.length === currentIndex.value + 1 
     || currentIndex.value === 0
     || subTransitional.value
+    || views.length === currentIndex.value + 2
   ) return;
   next();
 };
 
 const prevPage = () => {
   transitionStyle.value = 'straight-translate-Y-up'
-  if (currentIndex.value === 0 || subTransitional.value) return;
+  if (currentIndex.value === 0 || subTransitional.value || views.length === currentIndex.value + 1) return;
   currentIndex.value = nextIndex(currentIndex.value - 1, -1);
 }
 

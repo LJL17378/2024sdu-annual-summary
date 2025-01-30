@@ -88,6 +88,7 @@ import indexBtn from '../assets/svg/index_btn.vue';
 import userData, { requestUserData } from '../assets/js/request';
 const showPopup = ref(false);
 const nextPage = inject('nextPageFunc');
+const toError = inject('toError')
 const next = inject('next')
 const agree = ref(false);
 const isShaking = ref(false);
@@ -168,6 +169,7 @@ const login = async () => {
     progress.value = 0;
     isLoading.value = false;
     alert(error.message);
+    toError()
   }
 };
 

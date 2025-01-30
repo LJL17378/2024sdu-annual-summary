@@ -1,5 +1,7 @@
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import axios from 'axios'
+
+
 
 // 创建一个ref对象，用于存储用户数据
 const userData = ref(null)
@@ -14,6 +16,7 @@ export const requestUserData =
     const res = await axios.post('https://annual-summary.sduonline.cn/api/auth/login', formData)
     if (!res || !res.data) throw new Error('登录失败')
     const {data, code} = res.data
+    console.log(code)
     switch (code) {
       case 200:
         console.log(data);

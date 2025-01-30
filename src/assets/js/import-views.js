@@ -20,6 +20,7 @@ import P18Working from "@/views/p18_working.vue";
 import P19sduol from "../../views/p19_sduol.vue";
 import Summary from "@/views/summary.vue";
 import End from "../../views/end.vue";
+import Error from "../../views/error.vue";
 
 const views = [
   Login,
@@ -43,7 +44,8 @@ const views = [
   P18Working,
   P19sduol,
   Summary,
-  End
+  End,
+  Error
 ];
 export default views;
 
